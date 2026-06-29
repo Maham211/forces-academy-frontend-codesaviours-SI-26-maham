@@ -6,7 +6,7 @@
 
 ## Project Description
 
-This is the official Forces Academy Frontend Website developed as part of the Code Saviours Summer Internship 2026.
+This is the Forces Academy Frontend Website developed as part of the Code Saviours Summer Internship 2026.
 
 ### Technologies Used
 
