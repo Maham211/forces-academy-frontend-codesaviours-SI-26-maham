@@ -1,0 +1,23 @@
+/* Navbar */
+
+.navbar{
+    padding:15px 0;
+}
+
+.navbar-brand{
+    font-size:28px;
+    font-weight:bold;
+}
+
+.nav-link{
+    color:white !important;
+    margin-right:10px;
+}
+
+.nav-link:hover{
+    color:gold !important;
+}
+
+.btn-warning{
+    font-weight:bold;
+}
