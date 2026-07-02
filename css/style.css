@@ -1,83 +1,377 @@
-/* General */
+/* =====================
+   GENERAL STYLES
+===================== */
 
-body{
-    font-family: Arial, Helvetica, sans-serif;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Navbar */
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#f8f9fa;
+    color:#333;
+    overflow-x:hidden;
+}
+
+
+/* =====================
+   NAVBAR
+===================== */
 
 .navbar{
+    background:#0f172a;
     padding:15px 0;
+    transition:.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,.1);
+}
+
+.navbar-brand{
+    color:#fff !important;
+    letter-spacing:1px;
 }
 
 .nav-link{
     color:white !important;
     margin-left:15px;
+    position:relative;
+    transition:.3s;
     font-weight:500;
 }
 
 .nav-link:hover{
+
     color:#ffc107 !important;
+
 }
 
-/* Hero Section */
+.nav-link::after{
+
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#ffc107;
+    transition:.3s;
+
+}
+
+.nav-link:hover::after{
+
+    width:100%;
+
+}
+
+.btn-warning{
+
+    border-radius:30px;
+    transition:.4s;
+}
+
+.btn-warning:hover{
+
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+}
+
+
+/* =====================
+   HERO SECTION
+===================== */
 
 #hero{
 
-    background:url("../images/hero.jpg") center center/cover no-repeat;
-
+    background:linear-gradient(135deg,#0f172a,#1e3a8a);
     min-height:100vh;
-
-    position:relative;
-
-}
-
-.hero-overlay{
-
-    background:rgba(0,0,0,.65);
-
-    min-height:100vh;
-
     display:flex;
-
     align-items:center;
+    color:white;
 
 }
 
-#hero h1{
+.hero-text h1{
 
-    font-size:3.2rem;
-
-}
-
-#hero p{
-
-    font-size:1.2rem;
+    font-size:60px;
+    font-weight:700;
+    line-height:1.2;
+    animation:slideLeft 1s ease;
 
 }
 
-.btn{
+.hero-text p{
+
+    margin-top:20px;
+    font-size:18px;
+    line-height:1.8;
+    animation:slideLeft 1.3s ease;
+
+}
+
+.hero-text .btn{
+
+    margin-top:20px;
+    transition:.4s;
+
+}
+
+.hero-text .btn:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.hero-img{
+
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.35);
+    transition:.5s;
+    animation:slideRight 1.2s ease;
+
+}
+
+.hero-img:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+/* =====================
+   ABOUT SECTION
+===================== */
+
+.about-section{
+
+    padding:100px 0;
+    background:white;
+
+}
+
+.section-title{
+
+    color:#0d6efd;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+}
+
+.about-section h2{
+
+    margin:15px 0;
+    font-size:42px;
+    color:#1f2937;
+
+}
+
+.about-section p{
+
+    line-height:1.9;
+    color:#666;
+
+}
+
+.about-image{
+
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    transition:.5s;
+
+}
+
+.about-image:hover{
+
+    transform:scale(1.04);
+
+}
+
+
+/* =====================
+   FEATURE BOX
+===================== */
+
+.feature-box{
+
+    background:#fff;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    transition:.4s;
+    height:100%;
+
+}
+
+.feature-box:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
+
+}
+
+.feature-box h5{
+
+    color:#0d6efd;
+    margin-bottom:12px;
+
+}
+
+
+/* =====================
+   PRIMARY BUTTON
+===================== */
+
+.btn-primary{
 
     border-radius:30px;
-
-    padding:12px 28px;
+    padding:12px 30px;
+    transition:.4s;
 
 }
 
-/* Mobile */
+.btn-primary:hover{
 
-@media(max-width:991px){
+    transform:translateY(-5px);
 
-    #hero{
+}
 
-        text-align:center;
+
+/* =====================
+   ANIMATIONS
+===================== */
+
+@keyframes slideLeft{
+
+    from{
+
+        opacity:0;
+        transform:translateX(-60px);
 
     }
 
-    #hero h1{
+    to{
 
-        font-size:2.2rem;
+        opacity:1;
+        transform:translateX(0);
 
     }
+
+}
+
+@keyframes slideRight{
+
+    from{
+
+        opacity:0;
+        transform:translateX(60px);
+
+    }
+
+    to{
+
+        opacity:1;
+        transform:translateX(0);
+
+    }
+
+}
+
+
+/* =====================
+   RESPONSIVE DESIGN
+===================== */
+
+@media(max-width:992px){
+
+.hero-text{
+
+text-align:center;
+
+}
+
+.hero-text h1{
+
+font-size:42px;
+
+}
+
+.hero-img{
+
+margin-top:40px;
+
+}
+
+.about-section{
+
+text-align:center;
+
+}
+
+.about-section h2{
+
+font-size:34px;
+
+}
+
+}
+
+
+@media(max-width:768px){
+
+.hero-text h1{
+
+font-size:34px;
+
+}
+
+.hero-text p{
+
+font-size:16px;
+
+}
+
+.feature-box{
+
+margin-bottom:20px;
+
+}
+
+}
+
+
+@media(max-width:576px){
+
+.navbar-brand{
+
+font-size:24px !important;
+
+}
+
+.hero-text h1{
+
+font-size:30px;
+
+}
+
+.hero-text .btn{
+
+display:block;
+width:100%;
+margin-bottom:15px;
+
+}
+
+.about-section{
+
+padding:70px 0;
+
+}
 
 }
