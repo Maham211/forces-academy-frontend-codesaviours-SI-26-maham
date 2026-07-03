@@ -19,13 +19,12 @@ body{
 /* =====================
    NAVBAR (PROFESSIONAL)
 ===================== */
-
 .navbar{
-    background:rgba(15,23,42,0.95);
-    backdrop-filter:blur(10px);
-    padding:18px 0;
-    transition:.4s;
-    box-shadow:0 10px 25px rgba(0,0,0,.12);
+    background:rgba(10,25,47,.96);
+    backdrop-filter:blur(15px);
+    padding:14px 0;
+    transition:.4s ease;
+    box-shadow:0 8px 25px rgba(0,0,0,.18);
 }
 
 .navbar-brand{
@@ -95,7 +94,7 @@ body{
 
     background:
     linear-gradient(rgba(15,23,42,.85),rgba(30,58,138,.80)),
-    url("../images/hero-bg.jpg");
+    url("../images/hero-bg.jpeg");
 
     background-size:cover;
     background-position:center;
@@ -137,11 +136,12 @@ body{
 }
 
 .hero-text h1{
-    font-size:64px;
+    font-size:56px;
     font-weight:800;
-    line-height:1.1;
+    line-height:1.15;
+    margin-bottom:25px;
+    color:#fff;
 }
-
 .hero-text p{
     font-size:17px;
     line-height:1.8;
@@ -152,33 +152,32 @@ body{
 }
 
 .hero-text .btn{
-    border-radius:30px;
-    padding:12px 28px;
+
+    padding:14px 34px;
+    border-radius:50px;
     font-weight:600;
     transition:.4s;
 }
 
 .hero-text .btn:hover{
-    transform:translateY(-6px);
+
+    transform:translateY(-5px);
 }
 
-/* hero image */
 .hero-image{
+
     width:100%;
-    max-width:520px;
-    height:360px;
+    max-width:550px;
+    height:380px;
+
     object-fit:cover;
-    border-radius:25px;
-    border:5px solid rgba(255,255,255,.15);
-    box-shadow:0 25px 60px rgba(0,0,0,.35);
 
-    animation:
-    slideRight 1.3s ease,
-    floatImage 5s ease-in-out infinite;
+    border-radius:22px;
 
-    transition:.5s;
+    border:6px solid rgba(255,255,255,.15);
+
+    box-shadow:0 35px 70px rgba(0,0,0,.35);
 }
-
 .hero-image:hover{
     transform:scale(1.05) rotate(-1deg);
 }
@@ -188,10 +187,9 @@ body{
 ===================== */
 
 .about-section{
-    padding:100px 0;
-    background:#fff;
+    padding:120px 0;
+    background:#ffffff;
 }
-
 .section-title{
     color:#0d6efd;
     font-weight:700;
