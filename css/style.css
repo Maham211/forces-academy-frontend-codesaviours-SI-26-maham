@@ -87,7 +87,7 @@ body{
 ===================== */
 
 #hero{
-    min-height:100vh;
+    min-height:90vh;
     display:flex;
     align-items:center;
     position:relative;
@@ -137,16 +137,16 @@ body{
 }
 
 .hero-text h1{
-    font-size:52px;
-    font-weight:700;
-    line-height:1.2;
-    margin-bottom:20px;
+    font-size:64px;
+    font-weight:800;
+    line-height:1.1;
 }
+
 .hero-text p{
-    font-size:18px;
+    font-size:17px;
     line-height:1.8;
     color:#dbeafe;
-    max-width:550px;
+    max-width:500px;
     margin-bottom:30px;
     animation:slideLeft 1.4s ease;
 }
@@ -165,8 +165,8 @@ body{
 /* hero image */
 .hero-image{
     width:100%;
-    max-width:600px;
-    height:430px;
+    max-width:520px;
+    height:360px;
     object-fit:cover;
     border-radius:25px;
     border:5px solid rgba(255,255,255,.15);
