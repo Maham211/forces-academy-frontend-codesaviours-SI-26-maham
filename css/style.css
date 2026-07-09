@@ -378,3 +378,57 @@ body {
     .footer-description { max-width:100%; }
     .social-icons { justify-content:center; }
 }
+/* ==========================================================================
+   COURSES PAGE SPECIFIC STYLES
+   ========================================================================== */
+
+/* Smooth Card Lifting Effect */
+.course-card {
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+    border-radius: 16px !important;
+    background-color: #ffffff;
+}
+
+.course-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(10, 25, 47, 0.12) !important;
+}
+
+/* Customized Badge Adjustments */
+.course-card .badge {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-radius: 8px;
+}
+
+/* Custom Horizontal Divider */
+.course-card hr {
+    margin: 1.25rem 0;
+}
+
+/* Call-to-Action Outline Button Enhancements */
+.course-card .btn-outline-primary {
+    border-width: 2px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.course-card .btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25);
+    background-color: #0d6efd;
+    color: #ffffff;
+}
+
+/* Responsive Font Scaling for Small Devices */
+@media (max-width: 576px) {
+    .display-4 {
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    
+    .course-card {
+        margin-bottom: 5px;
+    }
+}
