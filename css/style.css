@@ -348,18 +348,60 @@ body {
 /* ==========================================================================
    8. ANIMATIONS & MEDIA QUERIES
    ========================================================================== */
-@keyframes floatImage {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-12px); }
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-@media(max-width:992px){
-    .hero-text { text-align: center; margin-bottom: 40px; }
-    .hero-text h1 { font-size: 38px; }
-    .about-section { text-align: center; }
-    .about-section h2 { font-size: 30px; }
-    .about-image { margin-top: 30px; }
-    .footer-section { text-align: center; }
-    .social-icons { display: flex; justify-content: center; }
+.animated-card {
+    opacity: 0;
+    animation: fadeInUp 0.7s ease-out forwards;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), 
+                box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    will-change: transform, box-shadow;
 }
 
+.animated-card:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 35px rgba(10, 25, 47, 0.18) !important;
+}
+
+.animated-card .btn-outline-primary {
+    transition: all 0.3s ease !important;
+}
+
+.animated-card:hover .btn-outline-primary {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+}
+
+/* Sequential Stagger Delays */
+.row > div:nth-child(1) .animated-card { animation-delay: 0.1s; }
+.row > div:nth-child(2) .animated-card { animation-delay: 0.2s; }
+.row > div:nth-child(3) .animated-card { animation-delay: 0.3s; }
+.row > div:nth-child(4) .animated-card { animation-delay: 0.4s; }
+.row > div:nth-child(5) .animated-card { animation-delay: 0.5s; }
+.row > div:nth-child(6) .animated-card { animation-delay: 0.6s; }
+
+/* Responsive Media Queries (Mobile Fix) */
+@media (max-width: 991px) {
+    .hero-section {
+        padding: 100px 0;
+    }
+    .hero-section h1 {
+        font-size: 36px;
+    }
+}
+
+/* Mobile responsive check for cards translation effect */
+@media (max-width: 768px) {
+    .animated-card:hover {
+        transform: translateY(-5px) !important; /* Mobile par lift-up kam rakha hai taake boundary break na ho */
+    }
+}
