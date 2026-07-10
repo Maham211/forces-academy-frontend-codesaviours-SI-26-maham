@@ -67,7 +67,11 @@ body {
 .nav-link:hover::after, .nav-link.active::after {
     width: 100%;
 }
-
+.navbar-brand img {
+    max-height: 50px; /* Aap isko 40px ya 60px apni marzi se kar sakte hain */
+    width: auto;
+    object-fit: contain;
+}
 /* ==========================================================================
    3. GLOBAL BUTTONS & UTILITIES 
    ========================================================================== */
@@ -358,3 +362,4 @@ body {
     .footer-section { text-align: center; }
     .social-icons { display: flex; justify-content: center; }
 }
+
