@@ -344,7 +344,67 @@ body {
 .text-light-opacity {
     color: #e2e8f0 !important;
 }
+/* --- Animation Keyframes --- */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* --- Page Entry Animations --- */
+        .animate-header {
+            animation: fadeInUp 0.6s ease out forwards;
+        }
+
+        .animate-filters {
+            animation: fadeInUp 0.6s ease-out 0.2s forwards;
+            opacity: 0; /* Starts hidden until animation plays */
+        }
+
+        .animate-table {
+            animation: fadeIn 0.8s ease-out 0.4s forwards;
+            opacity: 0; /* Starts hidden until animation plays */
+        }
+
+        /* --- Smooth Hover Transitions --- */
+        /* Smooth background and scale change for dropdown buttons */
+        .filter-bar .btn-outline-secondary {
+            transition: all 0.3s ease;
+        }
+        .filter-bar .btn-outline-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Interactive row animations on hover */
+        .table-hover tbody tr {
+            transition: all 0.25s ease;
+        }
+        .table-hover tbody tr:hover {
+            transform: scale(1.01);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Badge pop-in scaling effect */
+        .badge {
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: inline-block;
+        }
+        .table-hover tbody tr:hover .badge {
+            transform: scale(1.15);
+        }
 /* ==========================================================================
    8. ANIMATIONS & MEDIA QUERIES
    ========================================================================== */
