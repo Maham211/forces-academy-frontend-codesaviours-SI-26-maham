@@ -41,6 +41,12 @@ body {
     transform: scale(1.05);
 }
 
+.navbar-brand img {
+    max-height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
 .nav-link {
     color: white !important;
     margin-left: 15px;
@@ -49,7 +55,8 @@ body {
     font-weight: 500;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover, 
+.nav-link.active {
     color: #ffc107 !important;
 }
 
@@ -64,14 +71,11 @@ body {
     transition: .3s;
 }
 
-.nav-link:hover::after, .nav-link.active::after {
+.nav-link:hover::after, 
+.nav-link.active::after {
     width: 100%;
 }
-.navbar-brand img {
-    max-height: 50px; /* Aap isko 40px ya 60px apni marzi se kar sakte hain */
-    width: auto;
-    object-fit: contain;
-}
+
 /* ==========================================================================
    3. GLOBAL BUTTONS & UTILITIES 
    ========================================================================== */
@@ -99,6 +103,10 @@ body {
     box-shadow: 0 12px 25px rgba(13, 110, 253, 0.3);
 }
 
+.text-light-opacity {
+    color: #e2e8f0 !important;
+}
+
 /* ==========================================================================
    4. INDEX (HOME) PAGE SPECIFIC - HERO SECTION 
    ========================================================================== */
@@ -123,7 +131,7 @@ body {
 .hero-text p {
     font-size: 17px;
     line-height: 1.8;
-    color: #e2e8f0; /* Soft light color for legibility over dark backgrounds */
+    color: #e2e8f0;
     margin-bottom: 30px;
 }
 
@@ -193,7 +201,8 @@ body {
     box-shadow: 0 20px 40px rgba(13, 110, 253, 0.2);
 }
 
-.feature-box:hover h5, .feature-box:hover p {
+.feature-box:hover h5, 
+.feature-box:hover p {
     color: #fff !important;
 }
 
@@ -207,9 +216,8 @@ body {
     margin-bottom: 15px;
     transition: 0.3s;
 }
-/* ==========================================================================
-   LEADERSHIP TEAM IMAGE FRAME ADJUSTMENT
-   ========================================================================== */
+
+/* --- LEADERSHIP TEAM IMAGE FRAME ADJUSTMENT --- */
 .team-card {
     background: #ffffff;
     border-radius: 20px !important;
@@ -224,10 +232,9 @@ body {
     box-shadow: 0 25px 50px rgba(13, 110, 253, 0.12);
 }
 
-/* Image container ka scale barha diya */
 .team-img-wrapper {
     width: 100%;
-    height: 320px !important; /* Height ko 320px tak bada kar diya */
+    height: 320px !important;
     overflow: hidden;
     position: relative;
     background: #f1f5f9;
@@ -236,21 +243,15 @@ body {
 .team-img-wrapper img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important; /* Isse aapki photo bina stretch hue adjust ho jayegi */
-    object-position: top center !important; /* Face focus center me rahega */
+    object-fit: cover !important;
+    object-position: top center !important;
     transition: transform 0.5s ease;
 }
 
 .team-card:hover .team-img-wrapper img {
-    transform: scale(1.06); /* Hover par elegant zoom effect */
+    transform: scale(1.06);
 }
 
-/* Responsiveness for small screens */
-@media (max-width: 768px) {
-    .team-img-wrapper {
-        height: 380px !important; /* Mobile par aur bada aur saaf dikhega */
-    }
-}
 /* ==========================================================================
    6. COURSES & GRID MODULES
    ========================================================================== */
@@ -284,19 +285,20 @@ body {
     border-top: 4px solid #ffc107;
 }
 
-.footer-section h3, .footer-section h4 {
+.footer-section h3, 
+.footer-section h4 {
     color: #ffc107;
     margin-bottom: 25px;
     font-weight: 700;
 }
 
 .footer-description {
-    color: #cbd5e1; /* Replaced dark grey text with high-contrast soft grey */
+    color: #cbd5e1;
     line-height: 1.8;
 }
 
 .footer-section p {
-    color: #f1f5f9; /* Fallback light text replacement for dark container text elements */
+    color: #f1f5f9;
 }
 
 .footer-links {
@@ -340,74 +342,11 @@ body {
     transform: translateY(-4px);
 }
 
-/* Text transparency layer utility for dark background helpers */
-.text-light-opacity {
-    color: #e2e8f0 !important;
-}
-/* --- Animation Keyframes --- */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* --- Page Entry Animations --- */
-        .animate-header {
-            animation: fadeInUp 0.6s ease out forwards;
-        }
-
-        .animate-filters {
-            animation: fadeInUp 0.6s ease-out 0.2s forwards;
-            opacity: 0; /* Starts hidden until animation plays */
-        }
-
-        .animate-table {
-            animation: fadeIn 0.8s ease-out 0.4s forwards;
-            opacity: 0; /* Starts hidden until animation plays */
-        }
-
-        /* --- Smooth Hover Transitions --- */
-        /* Smooth background and scale change for dropdown buttons */
-        .filter-bar .btn-outline-secondary {
-            transition: all 0.3s ease;
-        }
-        .filter-bar .btn-outline-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Interactive row animations on hover */
-        .table-hover tbody tr {
-            transition: all 0.25s ease;
-        }
-        .table-hover tbody tr:hover {
-            transform: scale(1.01);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Badge pop-in scaling effect */
-        .badge {
-            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: inline-block;
-        }
-        .table-hover tbody tr:hover .badge {
-            transform: scale(1.15);
-        }
 /* ==========================================================================
    8. ANIMATIONS & MEDIA QUERIES
    ========================================================================== */
+
+/* --- Animation Keyframes --- */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -419,6 +358,27 @@ body {
     }
 }
 
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- Page Entry Animations --- */
+.animate-header {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.animate-filters {
+    animation: fadeInUp 0.6s ease-out 0.2s forwards;
+    opacity: 0;
+}
+
+.animate-table {
+    animation: fadeIn 0.8s ease-out 0.4s forwards;
+    opacity: 0;
+}
+
+/* --- Animated Cards Style --- */
 .animated-card {
     opacity: 0;
     animation: fadeInUp 0.7s ease-out forwards;
@@ -449,7 +409,37 @@ body {
 .row > div:nth-child(5) .animated-card { animation-delay: 0.5s; }
 .row > div:nth-child(6) .animated-card { animation-delay: 0.6s; }
 
-/* Responsive Media Queries (Mobile Fix) */
+/* --- Smooth Hover Transitions & Interactive Tables --- */
+.filter-bar .btn-outline-secondary {
+    transition: all 0.3s ease;
+}
+
+.filter-bar .btn-outline-secondary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.table-hover tbody tr {
+    transition: all 0.25s ease;
+}
+
+.table-hover tbody tr:hover {
+    transform: scale(1.01);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.badge {
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: inline-block;
+}
+
+.table-hover tbody tr:hover .badge {
+    transform: scale(1.15);
+}
+
+/* --- Responsive Media Queries (Mobile Fix) --- */
 @media (max-width: 991px) {
     .hero-section {
         padding: 100px 0;
@@ -459,9 +449,11 @@ body {
     }
 }
 
-/* Mobile responsive check for cards translation effect */
 @media (max-width: 768px) {
+    .team-img-wrapper {
+        height: 380px !important;
+    }
     .animated-card:hover {
-        transform: translateY(-5px) !important; /* Mobile par lift-up kam rakha hai taake boundary break na ho */
+        transform: translateY(-5px) !important;
     }
 }
