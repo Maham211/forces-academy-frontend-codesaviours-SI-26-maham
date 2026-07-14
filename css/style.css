@@ -438,7 +438,84 @@ body {
 .table-hover tbody tr:hover .badge {
     transform: scale(1.15);
 }
+/* ==========================================================================
+   Forces Academy Faisalabad - Gallery Styles
+   ========================================================================== */
 
+/* Gallery Cards Grid Transition */
+.gallery-card {
+    transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: opacity, transform;
+}
+
+/* Individual Gallery Item Box */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    aspect-ratio: 4/3;
+    cursor: pointer;
+    background-color: #f8f9fa;
+}
+
+/* Image zoom effect on hover */
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Hover Overlay Mask */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    text-align: center;
+    padding: 15px;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+/* Category Filter Buttons Styling */
+.filter-btn {
+    border-radius: 30px;
+    padding: 8px 24px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active, 
+.filter-btn:hover {
+    background-color: #0d6efd !important;
+    color: #fff !important;
+    border-color: #0d6efd !important;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+}
+/* Lightbox Image Viewport Fix */
+.gslide img {
+    max-width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    display: block !important;
+}
 /* --- Responsive Media Queries (Mobile Fix) --- */
 @media (max-width: 991px) {
     .hero-section {

@@ -4,178 +4,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forces Academy Faisalabad</title>
+    <title>Gallery | Forces Academy Faisalabad</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
-
         <div class="container">
-
-            <!-- Logo -->
             <img src="images/logo.png" alt="Forces Academy Logo" height="50" class="me-2">
             <a class="navbar-brand fw-bold fs-3" href="index.html">
                 Forces Academy Faisalabad
             </a>
 
-            <!-- Mobile Menu -->
-
-            <button class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarNav">
-
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
-            <!-- Navigation -->
-
             <div class="collapse navbar-collapse" id="navbarNav">
-
                 <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="courses.html">
-                            Courses
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="admissions.html">
-                            Admissions
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="results.html">
-                            Results
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">
-                            Gallery
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-
-                        <a href="#" class="btn btn-warning px-4 fw-semibold">
-
-                            Student Portal
-
-                        </a>
-
+                        <a href="#" class="btn btn-warning px-4 fw-semibold">Student Portal</a>
                     </li>
-
                 </ul>
-
             </div>
-
         </div>
-
     </nav>
 
-<footer class="footer-section">
+    <main class="container my-5 py-4">
+        
+        <div class="text-center mb-5">
+            <h2 class="fw-bold text-dark position-relative d-inline-block pb-2">
+                Our Gallery
+            </h2>
+            <p class="text-muted mt-2">Explore the vibrant life, events, sports achievements, and classrooms at Forces Academy Faisalabad.</p>
+        </div>
 
-    <div class="container">
+        <div class="d-flex flex-wrap justify-content-center gap-2 mb-5">
+            <button class="btn btn-outline-secondary filter-btn active" data-filter="all">All Photos</button>
+            <button class="btn btn-outline-secondary filter-btn" data-filter="events">Events</button>
+            <button class="btn btn-outline-secondary filter-btn" data-filter="sports">Sports</button>
+            <button class="btn btn-outline-secondary filter-btn" data-filter="academic">Academic</button>
+        </div>
 
-        <div class="row gy-4">
-
-            <!-- Academy -->
-            <div class="col-lg-4">
-
-                <h3>Forces Academy</h3>
-
-                <p class="footer-description">
-                    Forces Academy Faisalabad provides quality education,
-                    experienced teachers, and a modern learning environment
-                    to help students achieve academic excellence.
-                </p>
-
+        <div class="row g-4" id="gallery-grid">
+            
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="academic">
+                <a href="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Library & Study Session" data-description="Students utilizing library resources for collaborative study.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&q=80&w=500" alt="Library Session">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Library Session</h5>
+                            <span class="badge bg-primary">Academic</span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <!-- Quick Links -->
-            <div class="col-lg-4">
-
-                <h4>Quick Links</h4>
-
-                <ul class="footer-links">
-
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><a href="admissions.html">Admissions</a></li>
-                    <li><a href="results.html">Results</a></li>
-                    <li><a href="gallery.html">Gallery</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-
-                </ul>
-
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="events">
+                <a href="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Annual Prize Distribution" data-description="Honoring academic achievers during the yearly ceremony.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&q=80&w=500" alt="Prize Ceremony">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Prize Distribution</h5>
+                            <span class="badge bg-warning text-dark">Events</span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
-            <!-- Contact -->
-            <div class="col-lg-4">
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="sports">
+                <a href="https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Inter-School Cricket Match" data-description="Academy cricket team during the local tournament finals.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?auto=format&fit=crop&q=80&w=500" alt="Cricket Match">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Cricket Tournament</h5>
+                            <span class="badge bg-success">Sports</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                <h4>Contact Us</h4>
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="academic">
+                <a href="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Modern Computer Laboratory" data-description="Hands-on software and logical simulation sessions in the computer lab.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&q=80&w=500" alt="Computer Lab">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Computer Lab</h5>
+                            <span class="badge bg-primary">Academic</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                <p><i class="bi bi-geo-alt-fill me-2"></i>Faisalabad, Punjab, Pakistan</p>
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="events">
+                <a href="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Science & Tech Exhibition" data-description="Students presenting logic design projects at the annual exhibition.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=500" alt="Science Exhibition">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Science Exhibition</h5>
+                            <span class="badge bg-warning text-dark">Events</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                <p><i class="bi bi-envelope-fill me-2"></i>info@forcesacademy.com</p>
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="sports">
+                <a href="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Annual Athletics Day" data-description="Track events during the grand sports festival.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&q=80&w=500" alt="Athletics Sports">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Athletics Day</h5>
+                            <span class="badge bg-success">Sports</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                <p><i class="bi bi-telephone-fill me-2"></i>+92 300 1234567</p>
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="academic">
+                <a href="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Interactive Classroom Learning" data-description="Teacher delivering conceptual lectures in a multimedia classroom.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&q=80&w=500" alt="Classroom Study">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Modern Classrooms</h5>
+                            <span class="badge bg-primary">Academic</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-                <div class="social-icons">
-
-                    <a href="#"><i class="bi bi-facebook"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-linkedin"></i></a>
-                    <a href="#"><i class="bi bi-youtube"></i></a>
-
-                </div>
-
+            <div class="col-lg-3 col-md-6 col-12 gallery-card" data-category="events">
+                <a href="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=1200" class="glightbox" data-gallery="academy-gallery" data-title="Orientation Seminar" data-description="Welcoming new students on orientation day.">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&q=80&w=500" alt="Orientation Day">
+                        <div class="gallery-overlay">
+                            <i class="bi bi-zoom-in fs-2 mb-2"></i>
+                            <h5 class="fw-bold">Orientation Day</h5>
+                            <span class="badge bg-warning text-dark">Events</span>
+                        </div>
+                    </div>
+                </a>
             </div>
 
         </div>
+    </main>
 
-        <hr>
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4">
+                    <h3>Forces Academy</h3>
+                    <p class="footer-description">Forces Academy Faisalabad provides quality education, experienced teachers, and a modern learning environment to help students achieve academic excellence.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="courses.html">Courses</a></li>
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="results.html">Results</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Contact Us</h4>
+                    <p><i class="bi bi-geo-alt-fill me-2"></i>Faisalabad, Punjab, Pakistan</p>
+                    <p><i class="bi bi-envelope-fill me-2"></i>info@forcesacademy.com</p>
+                    <p><i class="bi bi-telephone-fill me-2"></i>+92 300 1234567</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <p class="copyright text-center">© 2026 Forces Academy Faisalabad. All Rights Reserved.</p>
+        </div>
+    </footer>
 
-        <p class="copyright text-center">
-            © 2026 Forces Academy Faisalabad. All Rights Reserved.
-        </p>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-    </div>
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // 1. Initialize Lightbox
+            let lightbox = GLightbox({
+                selector: '.glightbox',
+                touchNavigation: true,
+                loop: true,
+                zoomable: true,
+                draggable: true
+            });
+
+            // 2. JavaScript Image Category Filter Logic
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const galleryCards = document.querySelectorAll('.gallery-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    // Active class handle karna
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const selectedCategory = this.getAttribute('data-filter');
+
+                    galleryCards.forEach(card => {
+                        const cardCategory = card.getAttribute('data-category');
+                        const anchor = card.querySelector('a'); // Anchor tag selection
+
+                        if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+                            card.style.display = 'block';
+                            if (anchor) {
+                                anchor.classList.add('glightbox'); // Add back to lightbox array
+                            }
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'scale(1)';
+                            }, 50);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'scale(0.8)';
+                            if (anchor) {
+                                anchor.classList.remove('glightbox'); // Exclude from lightbox array
+                            }
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+
+                    // Lightbox refresh to clean up memory
+                    setTimeout(() => {
+                        lightbox.reload();
+                    }, 350);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
