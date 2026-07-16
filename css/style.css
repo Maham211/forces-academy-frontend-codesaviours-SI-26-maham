@@ -509,13 +509,7 @@ body {
     border-color: #0d6efd !important;
     box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
 }
-/* Lightbox Image Viewport Fix */
-.gslide img {
-    max-width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
-}
+
 /* --- Responsive Media Queries (Mobile Fix) --- */
 @media (max-width: 991px) {
     .hero-section {
