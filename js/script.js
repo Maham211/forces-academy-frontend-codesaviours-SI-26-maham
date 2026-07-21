@@ -122,3 +122,53 @@
                 });
             });
         });
+        // ==========================================================================
+// ANIMATED STATS COUNTER WITH INTERSECTION OBSERVER API
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const statNumbers = document.querySelectorAll(".stat-number");
+  const statsSection = document.querySelector(".stats-section");
+
+  // Counter animation logic over a 2-second window
+  const animateCounter = (element) => {
+    const target = +element.getAttribute("data-target");
+    const suffix = element.getAttribute("data-suffix") || "";
+    const duration = 2000; // 2000ms = 2 seconds
+    const frameRate = 1000 / 60; // 60 FPS target
+    const totalFrames = Math.round(duration / frameRate);
+    let frame = 0;
+
+    const counter = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      // Cubic ease-out calculation for smooth deceleration near completion
+      const currentCount = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+
+      element.textContent = currentCount + suffix;
+
+      if (frame === totalFrames) {
+        element.textContent = target + suffix; // Guarantees accurate final number
+        clearInterval(counter);
+      }
+    }, frameRate);
+  };
+
+  // Setup Intersection Observer API
+  const observerOptions = {
+    root: null, // Viewport
+    threshold: 0.3, // Triggers when 30% of stats section is visible on screen
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        statNumbers.forEach((num) => animateCounter(num));
+        observerInstance.unobserve(entry.target); // Run animation once
+      }
+    });
+  }, observerOptions);
+
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+});
