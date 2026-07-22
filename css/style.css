@@ -514,55 +514,62 @@ iframe {
   }
 }
 /* ==========================================================================
-   TESTIMONIALS SECTION & CAROUSEL POLISH
+   STATISTICS SECTION & CARDS
    ========================================================================== */
-.testimonials-section {
-  background-color: #ffffff;
+.stats-section {
+  background-color: var(--light-bg);
 }
 
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.stat-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: var(--transition-smooth);
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* ==========================================================================
+   TESTIMONIALS SECTION & CAROUSEL POLISH
+   ========================================================================== */
 .testimonial-card {
-  max-width: 650px;
-  border: 1px solid #e9ecef;
+  max-width: 680px;
+  border: 1px solid #eef2f6;
 }
 
 .testimonial-img {
   width: 90px;
   height: 90px;
   object-fit: cover;
-  border: 3px solid #0d6efd;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 3px solid var(--accent-blue);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
 }
+
 .carousel-indicators [data-bs-target] {
-  background-color: #0d6efd;
+  background-color: var(--accent-blue);
   width: 10px;
   height: 10px;
   border-radius: 50%;
   margin: 0 5px;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  width: 5%;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-size: 50%;
-}
-
-/* Mobile Responsiveness Adjustments */
+/* Mobile Responsiveness Rules */
 @media (max-width: 576px) {
-  .testimonial-card {
-    padding: 1.5rem !important;
+  .stat-card {
+    padding: 20px !important;
   }
-  
-  .testimonial-quote {
-    font-size: 1rem !important;
-  }
-  
   .carousel-control-prev,
   .carousel-control-next {
-    display: none; /* Rely on swipe and indicators on small screens */
+    display: none; /* Mobile users swipe or use indicators */
   }
 }
 /* ==========================================================================

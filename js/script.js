@@ -122,18 +122,17 @@
                 });
             });
         });
-        // ==========================================================================
-// ANIMATED STATS COUNTER WITH INTERSECTION OBSERVER API
+       // ==========================================================================
+// INTERSECTION OBSERVER ANIMATED COUNTER
 // ==========================================================================
 document.addEventListener("DOMContentLoaded", () => {
   const statNumbers = document.querySelectorAll(".stat-number");
   const statsSection = document.querySelector(".stats-section");
 
-  // Counter animation logic over a 2-second window
   const animateCounter = (element) => {
     const target = +element.getAttribute("data-target");
     const suffix = element.getAttribute("data-suffix") || "";
-    const duration = 2000; // 2000ms = 2 seconds
+    const duration = 2000; // 2 seconds counting animation
     const frameRate = 1000 / 60; // 60 FPS target
     const totalFrames = Math.round(duration / frameRate);
     let frame = 0;
@@ -141,29 +140,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const counter = setInterval(() => {
       frame++;
       const progress = frame / totalFrames;
-      // Cubic ease-out calculation for smooth deceleration near completion
+      // Cubic ease-out deceleration formula
       const currentCount = Math.round(target * (1 - Math.pow(1 - progress, 3)));
 
       element.textContent = currentCount + suffix;
 
       if (frame === totalFrames) {
-        element.textContent = target + suffix; // Guarantees accurate final number
+        element.textContent = target + suffix;
         clearInterval(counter);
       }
     }, frameRate);
   };
 
-  // Setup Intersection Observer API
+  // Intersection Observer API Trigger
   const observerOptions = {
-    root: null, // Viewport
-    threshold: 0.3, // Triggers when 30% of stats section is visible on screen
+    root: null,
+    threshold: 0.3 // Triggers when 30% of the stats section becomes visible
   };
 
   const observer = new IntersectionObserver((entries, observerInstance) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         statNumbers.forEach((num) => animateCounter(num));
-        observerInstance.unobserve(entry.target); // Run animation once
+        observerInstance.unobserve(entry.target); // Triggers counter once
       }
     });
   }, observerOptions);
