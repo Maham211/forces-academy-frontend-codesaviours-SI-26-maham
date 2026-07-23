@@ -171,3 +171,74 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(statsSection);
   }
 });
+// ==========================================================================
+// INTERSECTION OBSERVER ANIMATED COUNTER
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const statNumbers = document.querySelectorAll(".stat-number");
+  const statsSection = document.querySelector(".stats-section");
+
+  const animateCounter = (element) => {
+    const target = +element.getAttribute("data-target");
+    const suffix = element.getAttribute("data-suffix") || "";
+    const duration = 2000;
+    const frameRate = 1000 / 60;
+    const totalFrames = Math.round(duration / frameRate);
+    let frame = 0;
+
+    const counter = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      const currentCount = Math.round(target * (1 - Math.pow(1 - progress, 3)));
+
+      element.textContent = currentCount + suffix;
+
+      if (frame === totalFrames) {
+        element.textContent = target + suffix;
+        clearInterval(counter);
+      }
+    }, frameRate);
+  };
+
+  const observerOptions = {
+    root: null,
+    threshold: 0.3
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        statNumbers.forEach((num) => animateCounter(num));
+        observerInstance.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  if (statsSection) {
+    observer.observe(statsSection);
+  }
+});
+
+// ==========================================================================
+// BACK TO TOP BUTTON LOGIC
+// ==========================================================================
+document.addEventListener("DOMContentLoaded", () => {
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  if (backToTopBtn) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    });
+
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  }
+});
