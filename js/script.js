@@ -171,9 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
     observer.observe(statsSection);
   }
 });
-// ==========================================================================
-// INTERSECTION OBSERVER ANIMATED COUNTER
-// ==========================================================================
+// Animated Stats Counter (Intersection Observer API)
 document.addEventListener("DOMContentLoaded", () => {
   const statNumbers = document.querySelectorAll(".stat-number");
   const statsSection = document.querySelector(".stats-section");
@@ -181,7 +179,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const animateCounter = (element) => {
     const target = +element.getAttribute("data-target");
     const suffix = element.getAttribute("data-suffix") || "";
-    const duration = 2000;
+    const duration = 2000; // 2 seconds animation
     const frameRate = 1000 / 60;
     const totalFrames = Math.round(duration / frameRate);
     let frame = 0;
@@ -219,9 +217,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-// ==========================================================================
-// BACK TO TOP BUTTON LOGIC
-// ==========================================================================
+// Back to Top Button functionality
 document.addEventListener("DOMContentLoaded", () => {
   const backToTopBtn = document.getElementById("backToTopBtn");
 
