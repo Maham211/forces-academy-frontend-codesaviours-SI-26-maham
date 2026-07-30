@@ -2,15 +2,15 @@
    1. GLOBAL RESET & DESIGN SYSTEM VARIABLES (Unified Professional Theme)
    ========================================================================== */
 :root {
-    --primary-dark: #0a192f;   /* Deep Navy Blue (Navbar, Footers, Sub-headings) */
-    --accent-blue: #0d6efd;    /* Royal Blue (Interactive links, active states, forms) */
-    --brand-gold: #ffc107;     /* Golden Amber (Buttons, warning highlights, badges) */
-    --light-bg: #f8fafc;       /* Clean Light Gray Background for sections */
-    --text-dark: #333333;      /* Core dark color for high readability */
-    --text-muted: #64748b;    /* Secondary gray text */
+    --primary-dark: #0a192f;   /* Deep Navy Blue (Navbar, Footer, Headers) */
+    --accent-blue: #0d6efd;    /* Royal Blue (Buttons, Active States, Links) */
+    --brand-gold: #ffc107;     /* Golden Amber (Highlights, Hover States) */
+    --light-bg: #f8fafc;       /* Clean Light Gray Background */
+    --text-dark: #1e293b;      /* High-readability Dark Text */
+    --text-muted: #64748b;    /* Secondary Gray Text */
     --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
-    --hover-shadow: 0 20px 40px rgba(10, 25, 47, 0.12);
-    --transition-smooth: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    --hover-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
+    --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 * {
@@ -24,7 +24,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
     background-color: var(--light-bg);
     color: var(--text-dark);
     overflow-x: hidden;
@@ -35,11 +35,12 @@ body {
    2. NAVBAR COMPONENT & STICKY NAVIGATION
    ========================================================================== */
 .navbar {
-    background: rgba(10, 25, 47, 0.96) !important;
+    background: rgba(10, 25, 47, 0.96) !important; /* Deep Navy Background */
     backdrop-filter: blur(15px);
     padding: 14px 0;
     transition: var(--transition-smooth);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+    z-index: 1030;
 }
 
 .navbar-brand {
@@ -153,7 +154,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(30, 58, 138, 0.80)), 
+    background: linear-gradient(rgba(10, 25, 47, 0.88), rgba(17, 34, 64, 0.82)), 
                 url("https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=1200") no-repeat center center;
     background-size: cover;
     color: #ffffff;
@@ -164,6 +165,7 @@ body {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 25px;
+    animation: fadeInUp 0.7s ease-out forwards;
 }
 
 .hero-text p {
@@ -171,6 +173,7 @@ body {
     line-height: 1.8;
     color: #e2e8f0;
     margin-bottom: 30px;
+    animation: fadeInUp 0.7s ease-out 0.2s forwards;
 }
 
 .hero-image {
@@ -188,7 +191,6 @@ body {
     transform: scale(1.03) rotate(-1deg);
 }
 
-/* Carousel/Slider System Setup */
 .carousel-item {
     height: 75vh;
     min-height: 400px;
@@ -196,7 +198,7 @@ body {
 
 .carousel-caption {
     bottom: 25%;
-    background: rgba(10, 25, 47, 0.85);
+    background: rgba(10, 25, 47, 0.88);
     padding: 30px;
     border-radius: 15px;
     backdrop-filter: blur(5px);
@@ -205,7 +207,7 @@ body {
 }
 
 /* ==========================================================================
-   5. CARDS & GRID MODULES (Courses, Team, Features & About)
+   5. CARDS, GRID MODULES & ABOUT SECTION
    ========================================================================== */
 .card, .custom-card {
     background: #ffffff;
@@ -229,7 +231,6 @@ body {
     object-fit: cover;
 }
 
-/* About Layout Boxes & Features */
 .about-section {
     padding: 90px 0;
     background: #ffffff;
@@ -283,7 +284,7 @@ body {
     transition: var(--transition-smooth);
 }
 
-/* Team Management Frames */
+/* Team Section Cards */
 .team-card {
     border: 1px solid #eef2f6;
 }
@@ -308,7 +309,6 @@ body {
     transform: scale(1.06);
 }
 
-/* Animated Card Variants */
 .animated-card {
     opacity: 0;
     animation: fadeInUp 0.7s ease-out forwards;
@@ -324,7 +324,7 @@ body {
 }
 
 /* ==========================================================================
-   6. GALLERY & LIGHTBOX (With Dynamic Filters)
+   6. GALLERY & LIGHTBOX (With Filters)
    ========================================================================== */
 .gallery-container {
     display: grid;
@@ -404,7 +404,7 @@ body {
 }
 
 /* ==========================================================================
-   7. FORMS & DATA TABLES (Contact & Results)
+   7. FORMS & DATA TABLES
    ========================================================================== */
 .form-control {
     border: 1px solid #ced4da;
@@ -429,7 +429,6 @@ body {
 #contactForm button[type="submit"]:hover {
     transform: scale(1.02);
     background-color: #0b5ed7 !important;
-    animation: pulseGlow 1.5s infinite;
 }
 
 iframe {
@@ -437,7 +436,6 @@ iframe {
     animation: fadeIn 1.2s ease-in-out 0.3s forwards;
 }
 
-/* Data Tables Setup */
 .table-hover tbody tr {
     transition: all 0.25s ease;
 }
@@ -457,158 +455,68 @@ iframe {
 .table-hover tbody tr:hover .badge {
     transform: scale(1.15);
 }
+
 /* ==========================================================================
-   STATISTICS SECTION & ANIMATED COUNTERS
+   8. STATISTICS SECTION & COUNTERS
    ========================================================================== */
 .stats-section {
-  padding: 70px 20px;
-  background-color: var(--light-bg);
-  text-align: center;
+    padding: 70px 20px;
+    background-color: var(--light-bg);
+    text-align: center;
 }
 
 .stats-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .stat-card {
-  background: #ffffff;
-  padding: 35px 20px;
-  border-radius: 16px;
-  box-shadow: var(--card-shadow);
-  transition: var(--transition-smooth);
+    background: #ffffff;
+    padding: 35px 20px;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-smooth);
 }
 
 .stat-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--hover-shadow);
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
 }
 
 .stat-number {
-  font-size: 2.8rem;
-  font-weight: 800;
-  color: var(--accent-blue);
-  margin-bottom: 8px;
-  line-height: 1;
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: var(--accent-blue);
+    margin-bottom: 8px;
+    line-height: 1;
 }
 
 .stat-label {
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-/* Responsive Adjustments for Mobile Viewports (e.g. 375px) */
-@media (max-width: 576px) {
-  .stats-section {
-    padding: 45px 15px;
-  }
-  .stat-number {
-    font-size: 2.2rem;
-  }
-  .stat-label {
-    font-size: 0.95rem;
-  }
-}
-/* ==========================================================================
-   STATISTICS SECTION & CARDS
-   ========================================================================== */
-.stats-section {
-  background-color: var(--light-bg);
-}
-
-.stats-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.stat-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: var(--card-shadow);
-  transition: var(--transition-smooth);
-}
-
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--hover-shadow);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--text-muted);
 }
 
 /* ==========================================================================
-   TESTIMONIALS SECTION & CAROUSEL POLISH
+   9. TESTIMONIALS SECTION & CAROUSEL
    ========================================================================== */
-.testimonial-card {
-  max-width: 680px;
-  border: 1px solid #eef2f6;
-}
-
-.testimonial-img {
-  width: 90px;
-  height: 90px;
-  object-fit: cover;
-  border: 3px solid var(--accent-blue);
-  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
-}
-
-.carousel-indicators [data-bs-target] {
-  background-color: var(--accent-blue);
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  margin: 0 5px;
-}
-
-/* Mobile Responsiveness Rules */
-@media (max-width: 576px) {
-  .stat-card {
-    padding: 20px !important;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    display: none; /* Mobile users swipe or use indicators */
-  }
-}
-/* Smooth Scroll for all anchors */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Statistics Section Styles */
-.stats-section {
-  background-color: var(--light-bg, #f8fafc);
-}
-
-.stats-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 24px;
-}
-
-.stat-card {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: var(--card-shadow, 0 8px 25px rgba(0, 0, 0, 0.05));
-  transition: var(--transition-smooth, all 0.3s ease);
-}
-
-.stat-card:hover {
-  transform: translateY(-8px);
-  box-shadow: var(--hover-shadow, 0 20px 40px rgba(10, 25, 47, 0.12));
-}
-
 .testimonial-card {
     background: #ffffff;
     max-width: 750px;
     margin: 0 auto;
     padding: 2.5rem 2rem;
     border-radius: 16px;
-    box-shadow: var(--card-shadow, 0 8px 25px rgba(0, 0, 0, 0.05));
+    box-shadow: var(--card-shadow);
     border: 1px solid #e2e8f0;
     text-align: center;
+    transition: var(--transition-smooth);
+}
+
+.testimonial-card:hover {
+    box-shadow: var(--hover-shadow);
 }
 
 .testimonial-card .testimonial-img {
@@ -619,7 +527,7 @@ html {
     border-radius: 50% !important;
     object-fit: cover !important;
     object-position: top center !important;
-    border: 4px solid var(--brand-gold, #ffc107) !important;
+    border: 4px solid var(--brand-gold) !important;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
     display: block !important;
     margin: 0 auto 1.25rem auto !important;
@@ -627,9 +535,10 @@ html {
 
 .testimonial-card .star-rating {
     font-size: 1.1rem;
-    color: #ffc107;
+    color: var(--brand-gold);
     margin-bottom: 1rem;
 }
+
 .carousel-indicators [data-bs-target] {
     background-color: var(--primary-dark);
     width: 12px;
@@ -644,7 +553,7 @@ html {
 }
 
 /* ==========================================================================
-   7. BACK TO TOP FLOATING BUTTON
+   10. BACK TO TOP FLOATING BUTTON
    ========================================================================== */
 #backToTopBtn {
     position: fixed;
@@ -653,8 +562,8 @@ html {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: var(--accent-blue);
-    color: #ffffff;
+    background-color: var(--brand-gold);
+    color: #000000;
     border: none;
     outline: none;
     cursor: pointer;
@@ -662,7 +571,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(13, 110, 253, 0.4);
+    box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
     opacity: 0;
     visibility: hidden;
     transition: var(--transition-smooth);
@@ -675,12 +584,13 @@ html {
 }
 
 #backToTopBtn:hover {
-    background-color: var(--primary-dark);
-    transform: translateY(-3px);
+    background-color: #e0a800;
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* ==========================================================================
-   8. KEYFRAME ANIMATIONS
+   11. KEYFRAME ANIMATIONS
    ========================================================================== */
 @keyframes fadeInUp {
     from {
@@ -707,62 +617,84 @@ html {
 .row > div:nth-child(3) .card { animation-delay: 0.3s; }
 
 /* ==========================================================================
-   9. FOOTER & MEDIA QUERIES
+   12. CALL TO ACTION (CTA) SECTION - UNIFIED NAVY BANNER
    ========================================================================== */
-footer {
-    background-color: var(--primary-dark);
-    color: #94a3b8;
-    padding: 4rem 0 2rem 0;
+.bg-primary, 
+section.bg-primary {
+    background-color: #0a192f !important; /* Deep Navy Blue */
+    border-radius: 0 !important;
 }
 
-footer h4 {
-    color: #ffffff;
-    font-size: 1.2rem;
+/* CTA Card Fix (Card overrides remove karke clean banner visual dena) */
+.bg-primary .card {
+    background-color: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+}
+
+.bg-primary h1, 
+.bg-primary h2, 
+.bg-primary h3, 
+.bg-primary p {
+    color: #ffffff !important;
+}
+
+/* CTA Button - Golden Style */
+.bg-primary .btn-light,
+.bg-primary .btn-warning {
+    background-color: var(--brand-gold) !important;
+    border-color: var(--brand-gold) !important;
+    color: #000000 !important;
     font-weight: 600;
-    margin-bottom: 1.25rem;
-}
-
-footer ul {
-    list-style: none;
-    padding: 0;
-}
-
-footer ul li {
-    margin-bottom: 0.6rem;
-}
-
-footer ul li a {
-    color: #94a3b8;
-    text-decoration: none;
+    border-radius: 30px;
+    padding: 12px 32px;
     transition: var(--transition-smooth);
 }
 
-footer ul li a:hover {
-    color: var(--brand-gold);
-    padding-left: 4px;
-}
-
-footer .social-icons a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 38px;
-    height: 38px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.08);
-    color: #ffffff;
-    margin-right: 8px;
-    text-decoration: none;
-    transition: var(--transition-smooth);
-}
-
-footer .social-icons a:hover {
-    background-color: var(--brand-gold);
-    color: var(--primary-dark);
+.bg-primary .btn-light:hover,
+.bg-primary .btn-warning:hover {
+    background-color: #e0a800 !important;
+    border-color: #e0a800 !important;
     transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
 }
 
-/* Responsive Breakpoints */
+/* ==========================================================================
+   13. DEEP NAVY BLUE FOOTER OVERRIDES
+   ========================================================================== */
+footer, 
+footer.bg-dark, 
+footer.text-white {
+    background-color: #0a192f !important;
+    color: #e2e8f0 !important;
+}
+
+footer h4, 
+footer h5, 
+footer .text-warning {
+    color: #ffc107 !important;
+}
+
+footer p, 
+footer li, 
+footer a, 
+footer .text-white-50 {
+    color: #cbd5e1 !important;
+}
+
+footer a:hover {
+    color: #ffc107 !important;
+}
+
+footer hr, 
+footer .border-secondary {
+    border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* ==========================================================================
+   14. RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
 @media (max-width: 768px) {
     #hero {
         padding: 2.5rem 0 3.5rem 0;
@@ -774,4 +706,66 @@ footer .social-icons a:hover {
     .testimonial-card {
         padding: 1.5rem 1rem;
     }
+}
+
+@media (max-width: 576px) {
+    .stats-section {
+        padding: 45px 15px;
+    }
+    .stat-card {
+        padding: 20px !important;
+    }
+    .stat-number {
+        font-size: 2rem;
+    }
+    .stat-label {
+        font-size: 0.95rem;
+    }
+    .carousel-control-prev,
+    .carousel-control-next {
+        display: none;
+    }
+    #backToTopBtn {
+        bottom: 20px;
+        right: 20px;
+        width: 42px;
+        height: 42px;
+    }
+}
+/* ==========================================================================
+   CTA SECTION - FORCE NAVY BLUE OVERRIDE
+   ========================================================================== */
+/* Navy Blue Banner - Tight Padding & Zero Margin */
+.navy-cta-banner {
+    background-color: #0a192f !important;
+    padding: 2rem 1.5rem !important; /* Padding kam kar di hai */
+    margin-top: 0 !important;        /* Extra top space finish */
+    margin-bottom: 0 !important;     /* Extra bottom space finish */
+    box-shadow: 0 8px 25px rgba(10, 25, 47, 0.2) !important;
+    border-bottom: 4px solid #ffc107 !important;
+}
+
+.navy-cta-banner h2 {
+    color: #ffffff !important;
+    font-size: 1.75rem;
+}
+
+.navy-cta-banner p {
+    color: #cbd5e1 !important;
+    font-size: 1rem;
+}
+
+.navy-cta-banner .btn-warning {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #000000 !important;
+    border-radius: 30px;
+    padding: 10px 28px;
+    font-weight: 600;
+}
+
+.navy-cta-banner .btn-warning:hover {
+    background-color: #e0a800 !important;
+    border-color: #e0a800 !important;
+    transform: translateY(-2px);
 }
