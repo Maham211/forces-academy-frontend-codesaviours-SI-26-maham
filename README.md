@@ -8,7 +8,7 @@ An educational web application built for Forces Academy Faisalabad to provide st
 ## Screenshots
 | Home Page | Courses Page | Contact Us |
 | :---: | :---: | :---: |
-| ![Home Page](images/hero.jpeg) | ![Courses](images/about.png) | ![Contact](images/aboutAcademy.png) |
+| ![Home Page](images/index.png) | ![Courses](images/Course.png) | ![Contact](images/contact.png) |
 
 ## Tech Stack Used
 * **Frontend:** HTML5, CSS3 (Custom Variables & Modern Layouts)
