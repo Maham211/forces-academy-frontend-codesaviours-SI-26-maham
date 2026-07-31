@@ -1,16 +1,26 @@
-# Forces Academy
+# Forces Academy Faisalabad - Web Portal
 
-**Frontend Track | Code Saviours SI-26**
+An educational web application built for Forces Academy Faisalabad to provide students with course details, admissions info, results tracking, and gallery highlights.
 
-**Name:** Maham
+## Live Demo
+[View Live Site on GitHub Pages]( https://maham211.github.io/forces-academy-frontend-codesaviours-SI-26-maham/)
 
-## Project Description
+## Screenshots
+| Home Page | Courses Page | Contact Us |
+| :---: | :---: | :---: |
+| ![Home Page](images/hero.jpeg) | ![Courses](images/about.png) | ![Contact](images/aboutAcademy.png) |
 
-This is the Forces Academy Frontend Website developed as part of the Code Saviours Summer Internship 2026.
+## Tech Stack Used
+* **Frontend:** HTML5, CSS3 (Custom Variables & Modern Layouts)
+* **Framework:** Bootstrap v5.3.0
+* **Icons:** Bootstrap Icons v1.11.3
+* **Plugins:** GLightbox (for Image Lightbox Gallery)
 
-### Technologies Used
+## Key Features
+* **Unified Design System:** Consistent typography (`Poppins`), color variables, and responsive navigation.
+* **Distinct Student Portal Call-To-Action:** Visual styling for quick access.
+* **Interactive Components:** Hover card effects, image gallery lightbox filters, back-to-top navigation, and responsive carousel/grids.
+* **Fully Responsive Layout:** Optimized across desktop, tablet, and mobile viewports.
 
-- HTML5
-- CSS3
-- Bootstrap 5
-- JavaScript
+---
+**Built by:** [Maham Asif] | Code Saviours SI-26 | 2026
