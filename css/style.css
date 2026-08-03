@@ -29,6 +29,7 @@ body {
     color: var(--text-dark);
     overflow-x: hidden;
     line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* ==========================================================================
@@ -590,57 +591,27 @@ iframe {
 }
 
 /* ==========================================================================
-   11. KEYFRAME ANIMATIONS
+   11. CALL TO ACTION (CTA) SECTION - UNIFIED NAVY BANNER
    ========================================================================== */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.navy-cta-banner,
+.bg-primary {
+    background-color: #0a192f !important;
+    padding: 2.5rem 1.5rem !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: 0 8px 25px rgba(10, 25, 47, 0.2) !important;
+    border-bottom: 4px solid var(--brand-gold) !important;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.animate-header { animation: fadeInUp 0.6s ease-out forwards; }
-.animate-filters { animation: fadeInUp 0.6s ease-out 0.2s forwards; opacity: 0; }
-.animate-table { animation: fadeIn 0.8s ease-out 0.4s forwards; opacity: 0; }
-
-.row > div:nth-child(1) .card { animation-delay: 0.1s; }
-.row > div:nth-child(2) .card { animation-delay: 0.2s; }
-.row > div:nth-child(3) .card { animation-delay: 0.3s; }
-
-/* ==========================================================================
-   12. CALL TO ACTION (CTA) SECTION - UNIFIED NAVY BANNER
-   ========================================================================== */
-.bg-primary, 
-section.bg-primary {
-    background-color: #0a192f !important; /* Deep Navy Blue */
-    border-radius: 0 !important;
-}
-
-/* CTA Card Fix (Card overrides remove karke clean banner visual dena) */
-.bg-primary .card {
-    background-color: transparent !important;
-    border: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-}
-
-.bg-primary h1, 
-.bg-primary h2, 
-.bg-primary h3, 
-.bg-primary p {
+.navy-cta-banner h2, .bg-primary h1, .bg-primary h2, .bg-primary h3 {
     color: #ffffff !important;
 }
 
-/* CTA Button - Golden Style */
+.navy-cta-banner p, .bg-primary p {
+    color: #cbd5e1 !important;
+}
+
+.navy-cta-banner .btn-warning,
 .bg-primary .btn-light,
 .bg-primary .btn-warning {
     background-color: var(--brand-gold) !important;
@@ -648,20 +619,21 @@ section.bg-primary {
     color: #000000 !important;
     font-weight: 600;
     border-radius: 30px;
-    padding: 12px 32px;
+    padding: 10px 28px;
     transition: var(--transition-smooth);
 }
 
+.navy-cta-banner .btn-warning:hover,
 .bg-primary .btn-light:hover,
 .bg-primary .btn-warning:hover {
     background-color: #e0a800 !important;
     border-color: #e0a800 !important;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(255, 193, 7, 0.3);
 }
 
 /* ==========================================================================
-   13. DEEP NAVY BLUE FOOTER OVERRIDES
+   12. DEEP NAVY BLUE FOOTER
    ========================================================================== */
 footer, 
 footer.bg-dark, 
@@ -693,8 +665,80 @@ footer .border-secondary {
 }
 
 /* ==========================================================================
-   14. RESPONSIVE MEDIA QUERIES
+   13. DARK MODE SYSTEM (DAY 1 SETUP)
    ========================================================================== */
+#darkModeToggle {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    transition: var(--transition-smooth);
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#darkModeToggle:hover {
+    background-color: var(--brand-gold);
+    border-color: var(--brand-gold);
+    color: var(--primary-dark);
+}
+
+body.dark-mode {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+body.dark-mode .card,
+body.dark-mode .custom-card,
+body.dark-mode .stat-card,
+body.dark-mode .feature-box,
+body.dark-mode .testimonial-card,
+body.dark-mode .about-section,
+body.dark-mode .page-header {
+    background-color: #1e293b !important;
+    color: #f8fafc !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6,
+body.dark-mode .about-section h2 {
+    color: #ffffff !important;
+}
+
+body.dark-mode .stat-label,
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
+}
+
+/* ==========================================================================
+   14. KEYFRAME ANIMATIONS & RESPONSIVE QUERIES
+   ========================================================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.animate-header { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-filters { animation: fadeInUp 0.6s ease-out 0.2s forwards; opacity: 0; }
+.animate-table { animation: fadeIn 0.8s ease-out 0.4s forwards; opacity: 0; }
+
 @media (max-width: 768px) {
     #hero {
         padding: 2.5rem 0 3.5rem 0;
@@ -731,41 +775,4 @@ footer .border-secondary {
         width: 42px;
         height: 42px;
     }
-}
-/* ==========================================================================
-   CTA SECTION - FORCE NAVY BLUE OVERRIDE
-   ========================================================================== */
-/* Navy Blue Banner - Tight Padding & Zero Margin */
-.navy-cta-banner {
-    background-color: #0a192f !important;
-    padding: 2rem 1.5rem !important; /* Padding kam kar di hai */
-    margin-top: 0 !important;        /* Extra top space finish */
-    margin-bottom: 0 !important;     /* Extra bottom space finish */
-    box-shadow: 0 8px 25px rgba(10, 25, 47, 0.2) !important;
-    border-bottom: 4px solid #ffc107 !important;
-}
-
-.navy-cta-banner h2 {
-    color: #ffffff !important;
-    font-size: 1.75rem;
-}
-
-.navy-cta-banner p {
-    color: #cbd5e1 !important;
-    font-size: 1rem;
-}
-
-.navy-cta-banner .btn-warning {
-    background-color: #ffc107 !important;
-    border-color: #ffc107 !important;
-    color: #000000 !important;
-    border-radius: 30px;
-    padding: 10px 28px;
-    font-weight: 600;
-}
-
-.navy-cta-banner .btn-warning:hover {
-    background-color: #e0a800 !important;
-    border-color: #e0a800 !important;
-    transform: translateY(-2px);
 }
