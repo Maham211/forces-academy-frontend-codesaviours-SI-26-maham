@@ -1,14 +1,40 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     // ==========================================
-    // 1. DARK MODE TOGGLE (DAY 1 SETUP)
+    // 1. DARK MODE TOGGLE & PERSISTENCE (DAY 1 & 2)
     // ==========================================
     const darkModeToggle = document.getElementById('darkModeToggle');
+    const darkModeIcon = document.getElementById('darkModeIcon');
     const bodyElement = document.body;
+
+    // Load saved theme preference from LocalStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        bodyElement.classList.add('dark-mode');
+        if (darkModeIcon) {
+            darkModeIcon.classList.remove('bi-moon-fill');
+            darkModeIcon.classList.add('bi-sun-fill');
+        }
+    }
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function () {
             bodyElement.classList.toggle('dark-mode');
+            const isDarkMode = bodyElement.classList.contains('dark-mode');
+
+            // Save preference to LocalStorage
+            localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+
+            // Toggle Icon between Sun and Moon
+            if (darkModeIcon) {
+                if (isDarkMode) {
+                    darkModeIcon.classList.remove('bi-moon-fill');
+                    darkModeIcon.classList.add('bi-sun-fill');
+                } else {
+                    darkModeIcon.classList.remove('bi-sun-fill');
+                    darkModeIcon.classList.add('bi-moon-fill');
+                }
+            }
         });
     }
 
@@ -35,23 +61,32 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (form) {
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const phone = document.getElementById('phone');
+        const subject = document.getElementById('subject');
+        const message = document.getElementById('message');
+
+        const inputs = [name, email, phone, subject, message].filter(Boolean);
+
+        // Real-time error clearing on input
+        inputs.forEach(input => {
+            input.addEventListener('input', () => {
+                if (input.value.trim() !== '') {
+                    input.classList.remove('is-invalid');
+                }
+            });
+        });
+
         form.addEventListener('submit', function (event) {
             event.preventDefault();
             event.stopPropagation();
 
             let isValid = true;
 
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const phone = document.getElementById('phone');
-            const subject = document.getElementById('subject');
-            const message = document.getElementById('message');
-
-            const inputs = [name, email, phone, subject, message].filter(Boolean);
-
             // Basic empty field check
             inputs.forEach(input => {
-                if (input.value.trim() === "") {
+                if (input.value.trim() === '') {
                     input.classList.add('is-invalid');
                     isValid = false;
                 } else {
@@ -60,33 +95,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            // Email check
-            if (email && email.value.trim() !== "" && !isValidEmail(email.value.trim())) {
+            // Email format check
+            if (email && email.value.trim() !== '' && !isValidEmail(email.value.trim())) {
                 email.classList.remove('is-valid');
                 email.classList.add('is-invalid');
                 const feedback = document.getElementById('emailFeedback');
-                if (feedback) feedback.innerText = "Please provide a valid email structure (e.g. user@domain.com).";
+                if (feedback) feedback.innerText = 'Please provide a valid email structure (e.g. user@domain.com).';
                 isValid = false;
             }
 
-            // Phone check
-            if (phone && phone.value.trim() !== "") {
+            // Phone length check
+            if (phone && phone.value.trim() !== '') {
                 const numericPhone = phone.value.replace(/[^0-9]/g, '');
                 if (numericPhone.length < 10 || numericPhone.length > 15) {
                     phone.classList.remove('is-valid');
                     phone.classList.add('is-invalid');
                     const feedback = document.getElementById('phoneFeedback');
-                    if (feedback) feedback.innerText = "Please provide a valid phone number (10-15 digits).";
+                    if (feedback) feedback.innerText = 'Please provide a valid phone number (10-15 digits).';
                     isValid = false;
                 }
             }
 
             if (isValid) {
-                showAlert("Your message has been validated and sent successfully!", "success");
+                showAlert('Your message has been validated and sent successfully!', 'success');
                 form.reset();
                 inputs.forEach(input => input.classList.remove('is-valid'));
             } else {
-                showAlert("Validation Failed! Please make sure all fields are correctly filled.", "danger");
+                showAlert('Validation Failed! Please make sure all fields are correctly filled.', 'danger');
             }
         });
     }

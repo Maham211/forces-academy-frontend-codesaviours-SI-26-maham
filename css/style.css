@@ -502,7 +502,7 @@ iframe {
 }
 
 /* ==========================================================================
-   9. TESTIMONIALS SECTION & CAROUSEL
+   9. TESTIMONIALS SECTION & CAROUSEL (FIXED CIRCLE SIZE)
    ========================================================================== */
 .testimonial-card {
     background: #ffffff;
@@ -520,18 +520,23 @@ iframe {
     box-shadow: var(--hover-shadow);
 }
 
-.testimonial-card .testimonial-img {
-    width: 110px !important;
-    height: 110px !important;
-    min-width: 110px !important;
-    min-height: 110px !important;
-    border-radius: 50% !important;
+/* Profile Image Strict Dimensioning to Fix Oversized Circle Issue */
+.testimonial-card .testimonial-img,
+.testimonial-img {
+    width: 80px !important;
+    height: 80px !important;
+    max-width: 80px !important;
+    max-height: 80px !important;
+    min-width: 80px !important;
+    min-height: 80px !important;
+    border-radius: 10% !important;
     object-fit: cover !important;
     object-position: top center !important;
-    border: 4px solid var(--brand-gold) !important;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15) !important;
+    border: 3px solid var(--brand-gold) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12) !important;
     display: block !important;
-    margin: 0 auto 1.25rem auto !important;
+    margin: 0 auto 1rem auto !important;
+    flex-shrink: 0 !important;
 }
 
 .testimonial-card .star-rating {
