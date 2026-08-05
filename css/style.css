@@ -781,3 +781,119 @@ body.dark-mode .text-muted {
         height: 42px;
     }
 }
+/* ==========================================
+   PAGE ANIMATIONS & UTILITIES
+   ========================================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+    opacity: 0;
+    animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+/* Staggered Delays */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+/* ==========================================
+   ABOUT SECTION & FEATURE BOXES STYLING
+   ========================================== */
+.feature-box {
+    background-color: #ffffff;
+    border-color: #e2e8f0 !important;
+    transition: var(--transition-smooth);
+}
+
+.section-heading,
+.feature-title {
+    color: #1e293b;
+}
+
+.section-desc,
+.feature-desc {
+    color: #64748b;
+}
+
+/* Dark Mode Overrides for Feature Boxes */
+body.dark-mode .feature-box {
+    background-color: #1e293b !important;
+    border-color: #334155 !important;
+}
+
+body.dark-mode .section-heading,
+body.dark-mode .feature-title {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .section-desc,
+body.dark-mode .feature-desc {
+    color: #94a3b8 !important;
+}
+/* ==========================================
+   WHY CHOOSE US - LIGHT & DARK MODE FIX
+   ========================================== */
+
+/* Light Mode Default Styles */
+.why-choose-section {
+    background-color: #f8fafc;
+}
+.why-card {
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+}
+.why-choose-section .section-title {
+    color: #0f172a;
+}
+.why-choose-section .section-subtitle,
+.why-card .card-text {
+    color: #64748b;
+}
+.why-card .card-title {
+    color: #1e293b;
+}
+
+/* Dark Mode Overrides (High Specificity) */
+body.dark-mode .why-choose-section {
+    background-color: #0f172a !important;
+}
+body.dark-mode .why-choose-section .section-title {
+    color: #ffffff !important;
+}
+body.dark-mode .why-choose-section .section-subtitle {
+    color: #cbd5e1 !important;
+}
+body.dark-mode .why-card {
+    background-color: #1e293b !important;
+    border: 1px solid #334155 !important;
+}
+body.dark-mode .why-card .card-title {
+    color: #f8fafc !important;
+}
+body.dark-mode .why-card .card-text {
+    color: #94a3b8 !important;
+}
