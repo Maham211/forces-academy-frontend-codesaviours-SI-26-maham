@@ -855,45 +855,57 @@ body.dark-mode .feature-desc {
     color: #94a3b8 !important;
 }
 /* ==========================================
-   WHY CHOOSE US - LIGHT & DARK MODE FIX
+   FORCE VISIBILITY & DARK MODE FIX
    ========================================== */
 
-/* Light Mode Default Styles */
-.why-choose-section {
-    background-color: #f8fafc;
+.why-choose-section,
+.why-choose-section * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
 }
+
+/* Light Mode Card Styling */
 .why-card {
     background-color: #ffffff !important;
     border: 1px solid #e2e8f0 !important;
 }
+
 .why-choose-section .section-title {
-    color: #0f172a;
-}
-.why-choose-section .section-subtitle,
-.why-card .card-text {
-    color: #64748b;
-}
-.why-card .card-title {
-    color: #1e293b;
+    color: #0f172a !important;
 }
 
-/* Dark Mode Overrides (High Specificity) */
+.why-choose-section .section-subtitle,
+.why-card .card-text {
+    color: #64748b !important;
+}
+
+.why-card .card-title {
+    color: #1e293b !important;
+}
+
+/* Dark Mode Overrides */
 body.dark-mode .why-choose-section {
     background-color: #0f172a !important;
 }
+
 body.dark-mode .why-choose-section .section-title {
-    color: #ffffff !important;
+    color: #f8fafc !important;
 }
+
 body.dark-mode .why-choose-section .section-subtitle {
     color: #cbd5e1 !important;
 }
+
 body.dark-mode .why-card {
     background-color: #1e293b !important;
     border: 1px solid #334155 !important;
 }
+
 body.dark-mode .why-card .card-title {
     color: #f8fafc !important;
 }
+
 body.dark-mode .why-card .card-text {
     color: #94a3b8 !important;
 }
