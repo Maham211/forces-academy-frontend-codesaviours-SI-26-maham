@@ -7,25 +7,35 @@ document.addEventListener('DOMContentLoaded', function () {
     const darkModeIcon = document.getElementById('darkModeIcon');
     const bodyElement = document.body;
 
-    // LocalStorage se saved theme load karein
+    // Saved preference load karein
     const savedTheme = localStorage.getItem('theme');
+
     if (savedTheme === 'dark') {
         bodyElement.classList.add('dark-mode');
+        document.documentElement.classList.add('dark-mode');
         if (darkModeIcon) {
             darkModeIcon.classList.remove('bi-moon-fill');
             darkModeIcon.classList.add('bi-sun-fill');
+        }
+    } else {
+        bodyElement.classList.remove('dark-mode');
+        document.documentElement.classList.remove('dark-mode');
+        if (darkModeIcon) {
+            darkModeIcon.classList.remove('bi-sun-fill');
+            darkModeIcon.classList.add('bi-moon-fill');
         }
     }
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', function () {
             bodyElement.classList.toggle('dark-mode');
+            document.documentElement.classList.toggle('dark-mode');
             const isDarkMode = bodyElement.classList.contains('dark-mode');
 
-            // Save preference in LocalStorage
+            // Preference save karein
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 
-            // Toggle Icon
+            // Icon Switcher
             if (darkModeIcon) {
                 if (isDarkMode) {
                     darkModeIcon.classList.remove('bi-moon-fill');
@@ -203,5 +213,4 @@ document.addEventListener('DOMContentLoaded', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
-
 });
