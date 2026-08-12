@@ -192,15 +192,43 @@
             </div>
         </div>
     </section>
+    <section class="py-5 bg-light">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow border-0 rounded-3">
+          <div class="card-body p-4">
+            <h3 class="card-title text-center mb-4 fw-bold text-primary">Admission Enquiry</h3>
+            
+            <form id="enquiry-form">
+              <div class="mb-3">
+                <label for="user_name" class="form-label fw-semibold">Full Name</label>
+                <input type="text" class="form-control" id="user_name" name="user_name" placeholder="Enter your full name" required>
+              </div>
 
-    <section class="py-5 bg-dark text-white text-center" style="background: linear-gradient(rgba(10,25,47,0.95), rgba(10,25,47,0.98));">
-        <div class="container py-4">
-            <h2 class="fw-bold mb-3">Begin Your Registration Journey Today</h2>
-            <p class="text-muted col-lg-6 mx-auto mb-4 text-light-opacity">Seats are limited for the upcoming batch session. Reach our physical office space directly or email us your queries.</p>
-            <a href="mailto:info@forcesacademy.com" class="btn btn-warning py-3 px-5 text-uppercase fw-bold shadow">Apply Online / Contact Campus</a>
+              <div class="mb-3">
+                <label for="user_email" class="form-label fw-semibold">Email Address</label>
+                <input type="email" class="form-control" id="user_email" name="user_email" placeholder="name@example.com" required>
+              </div>
+
+              <div class="mb-3">
+                <label for="message" class="form-label fw-semibold">Your Enquiry / Message</label>
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Ask about course details, fee structure, etc." required></textarea>
+              </div>
+
+              <div class="d-grid">
+                <button type="submit" id="submit-btn" class="btn btn-primary btn-lg fw-semibold">
+                  Send Enquiry
+                </button>
+              </div>
+            </form>
+
+          </div>
         </div>
-    </section>
-
+      </div>
+    </div>
+  </div>
+</section>
   
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">

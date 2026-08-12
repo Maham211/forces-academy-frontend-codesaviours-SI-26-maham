@@ -213,4 +213,43 @@ document.addEventListener('DOMContentLoaded', function () {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     }
+
+    // ==========================================
+    // 6. EMAILJS INTEGRATION (ADMISSIONS ENQUIRY)
+    // ==========================================
+    const enquiryForm = document.getElementById('enquiry-form');
+    const submitBtn = document.getElementById('submit-btn');
+
+    if (typeof emailjs !== 'undefined') {
+        emailjs.init("qhqrcrKHbzkDYLDPD"); // Yahan apni EmailJS Public Key dalein
+    }
+
+    if (enquiryForm) {
+        enquiryForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            if (submitBtn) {
+                submitBtn.innerText = "Sending...";
+                submitBtn.disabled = true;
+            }
+
+            // Yahan Service ID aur Template ID dalein
+            emailjs.sendForm('service_0t4xg0a', 'template_lf8l72w', this)
+                .then(function () {
+                    alert('Enquiry sent successfully!');
+                    if (submitBtn) {
+                        submitBtn.innerText = "Send Enquiry";
+                        submitBtn.disabled = false;
+                    }
+                    enquiryForm.reset();
+                }, function (error) {
+                    alert('Failed to send enquiry: ' + JSON.stringify(error));
+                    if (submitBtn) {
+                        submitBtn.innerText = "Send Enquiry";
+                        submitBtn.disabled = false;
+                    }
+                });
+        });
+    }
+
 });
