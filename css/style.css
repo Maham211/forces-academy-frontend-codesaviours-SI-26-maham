@@ -32,63 +32,46 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ==========================================================================
-   2. NAVBAR COMPONENT & STICKY NAVIGATION
-   ========================================================================== */
+/* ==========================================
+   GLOBAL STANDARDIZED NAVBAR FIX
+   ========================================== */
 .navbar {
-    background: rgba(10, 25, 47, 0.96) !important;
-    backdrop-filter: blur(15px);
-    padding: 14px 0;
-    transition: var(--transition-smooth);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
-    z-index: 1030;
-}
-
-.navbar-brand {
-    color: #ffffff !important;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    transition: var(--transition-smooth);
-}
-
-.navbar-brand:hover {
-    color: var(--brand-gold) !important;
-    transform: scale(1.03);
+    min-height: 75px !important;
+    padding: 10px 0 !important;
+    background-color: #0a192f !important; /* Fixed Navy Blue */
 }
 
 .navbar-brand img {
-    max-height: 50px;
-    width: auto;
-    object-fit: contain;
+    height: 42px !important;
+    width: auto !important;
 }
 
-.nav-link {
-    color: #e2e8f0 !important;
-    font-weight: 500;
-    margin-left: 15px;
-    position: relative;
-    transition: var(--transition-smooth);
+.navbar-brand span {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
 }
 
-.nav-link:hover, 
-.nav-link.active {
-    color: var(--brand-gold) !important;
+.navbar-nav .nav-link {
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    padding: 8px 12px !important;
 }
 
-.nav-link::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -5px;
-    width: 0;
-    height: 2px;
-    background: var(--brand-gold);
-    transition: var(--transition-smooth);
+/* Button size locking */
+.navbar .btn-warning {
+    font-size: 0.9rem !important;
+    padding: 8px 18px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
 }
 
-.nav-link:hover::after, 
-.nav-link.active::after {
-    width: 100%;
+#darkModeToggle {
+    width: 38px !important;
+    height: 38px !important;
+    padding: 0 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
 }
 
 /* ==========================================================================
@@ -962,4 +945,75 @@ body.dark-mode a:not(.btn):not(.nav-link) {
         width: 42px;
         height: 42px;
     }
+}
+/* ==========================================
+   DAY 4: STUDENT PORTAL PAGE STYLES
+   ========================================== */
+
+/* Portal Hero Banner Custom Text Limit */
+.max-w-700 {
+    max-width: 700px;
+}
+
+/* Feature Cards Design */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Feature Card Hover Effect */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Dark Mode Adjustments for Portal Page */
+body.dark-mode .card {
+    background-color: #2b3035 !important;
+    color: #f8f9fa !important;
+}
+
+body.dark-mode .card .text-muted {
+    color: #adb5bd !important;
+}
+
+body.dark-mode .bg-light {
+    background-color: #212529 !important;
+}
+/* Portal Icons Perfect Circle Fix */
+.portal-icon-wrapper {
+    width: 70px !important;
+    height: 70px !important;
+    border-radius: 0% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 1rem auto !important;
+}
+/* Portal Hero Light Styling */
+.portal-hero {
+    background-color: #ffffff !important;
+}
+
+/* Max Width for Paragraph */
+.max-w-700 {
+    max-width: 700px;
+}
+
+/* Perfect Round Icons Fix */
+.portal-icon-wrapper {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 1rem auto !important;
+}
+
+/* Dark Mode Support for Portal Hero */
+body.dark-mode .portal-hero {
+    background-color: #1a1d20 !important;
+}
+body.dark-mode .portal-hero h1 {
+    color: #ffffff !important;
 }
