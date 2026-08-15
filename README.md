@@ -17,7 +17,7 @@ An educational web application built for Forces Academy Faisalabad to provide st
 * **Plugins:** GLightbox (for Image Lightbox Gallery)
 
 ## Key Features
-* **Unified Design System:** Consistent typography (`Poppins`), color variables, and responsive navigation.
+* **Unified Design System:** Color variables, and responsive navigation.
 * **Distinct Student Portal Call-To-Action:** Visual styling for quick access.
 * **Interactive Components:** Hover card effects, image gallery lightbox filters, back-to-top navigation, and responsive carousel/grids.
 * **Fully Responsive Layout:** Optimized across desktop, tablet, and mobile viewports.
