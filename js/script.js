@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
 
     // ==========================================
     // 1. DARK MODE TOGGLE & PERSISTENCE
@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const darkModeIcon = document.getElementById('darkModeIcon');
     const bodyElement = document.body;
 
-    // Saved preference load karein
     const savedTheme = localStorage.getItem('theme');
 
     if (savedTheme === 'dark') {
@@ -27,15 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     if (darkModeToggle) {
-        darkModeToggle.addEventListener('click', function () {
+        darkModeToggle.addEventListener('click', () => {
             bodyElement.classList.toggle('dark-mode');
             document.documentElement.classList.toggle('dark-mode');
             const isDarkMode = bodyElement.classList.contains('dark-mode');
 
-            // Preference save karein
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 
-            // Icon Switcher
             if (darkModeIcon) {
                 if (isDarkMode) {
                     darkModeIcon.classList.remove('bi-moon-fill');
@@ -49,13 +46,42 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // 2. FORM VALIDATION & INTERACTIVITY
+    // 2. MOBILE NAVIGATION TOGGLE & SMOOTH SCROLL
     // ==========================================
-    const form = document.getElementById('contactForm');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+
+    const anchorLinks = document.querySelectorAll('a[href^="#"]');
+    anchorLinks.forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId && targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
+
+    // ==========================================
+    // 3. CONTACT FORM VALIDATION
+    // ==========================================
+    const contactForm = document.getElementById('contactForm') || document.querySelector('#contact-form');
     const alertPlaceholder = document.getElementById('alertPlaceholder');
 
     function showAlert(message, type) {
-        if (!alertPlaceholder) return;
+        if (!alertPlaceholder) {
+            alert(message);
+            return;
+        }
         alertPlaceholder.innerHTML = `
             <div class="alert alert-${type} alert-dismissible fade show fw-bold" role="alert">
                 <i class="bi ${type === 'success' ? 'bi-check-circle-fill' : 'bi-exclamation-triangle-fill'} me-2"></i>
@@ -70,16 +96,15 @@ document.addEventListener('DOMContentLoaded', function () {
         return re.test(String(email).toLowerCase());
     }
 
-    if (form) {
+    if (contactForm) {
         const name = document.getElementById('name');
-        const email = document.getElementById('email');
+        const email = document.getElementById('email') || contactForm.querySelector('input[type="email"]');
         const phone = document.getElementById('phone');
         const subject = document.getElementById('subject');
-        const message = document.getElementById('message');
+        const message = document.getElementById('message') || contactForm.querySelector('textarea');
 
         const inputs = [name, email, phone, subject, message].filter(Boolean);
 
-        // Real-time error removal
         inputs.forEach(input => {
             input.addEventListener('input', () => {
                 if (input.value.trim() !== '') {
@@ -88,9 +113,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        form.addEventListener('submit', function (event) {
+        contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            event.stopPropagation();
 
             let isValid = true;
 
@@ -112,7 +136,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             if (isValid) {
                 showAlert('Aapka paigham kamyabi se bhej diya gaya hai!', 'success');
-                form.reset();
+                contactForm.reset();
                 inputs.forEach(input => input.classList.remove('is-valid'));
             } else {
                 showAlert('Meharbani karke tamam fields sahi tarah se pur karein.', 'danger');
@@ -121,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // 3. GALLERY FILTERING
+    // 4. GALLERY FILTERING
     // ==========================================
     const filterButtons = document.querySelectorAll('.filter-btn');
     const galleryCards = document.querySelectorAll('.gallery-card');
@@ -156,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // 4. STATS COUNTER ANIMATION
+    // 5. STATS COUNTER ANIMATION
     // ==========================================
     const statsSection = document.getElementById('statsSection') || document.querySelector('.stats-section');
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -197,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // 5. BACK TO TOP BUTTON
+    // 6. BACK TO TOP BUTTON
     // ==========================================
     const backToTopBtn = document.getElementById('backToTopBtn');
     if (backToTopBtn) {
@@ -215,13 +239,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // ==========================================
-    // 6. EMAILJS INTEGRATION (ADMISSIONS ENQUIRY)
+    // 7. EMAILJS INTEGRATION (ADMISSIONS ENQUIRY)
     // ==========================================
     const enquiryForm = document.getElementById('enquiry-form');
     const submitBtn = document.getElementById('submit-btn');
 
     if (typeof emailjs !== 'undefined') {
-        emailjs.init("qhqrcrKHbzkDYLDPD"); // Yahan apni EmailJS Public Key dalein
+        emailjs.init("qhqrcrKHbzkDYLDPD");
     }
 
     if (enquiryForm) {
@@ -233,16 +257,15 @@ document.addEventListener('DOMContentLoaded', function () {
                 submitBtn.disabled = true;
             }
 
-            // Yahan Service ID aur Template ID dalein
             emailjs.sendForm('service_0t4xg0a', 'template_lf8l72w', this)
-                .then(function () {
+                .then(() => {
                     alert('Enquiry sent successfully!');
                     if (submitBtn) {
                         submitBtn.innerText = "Send Enquiry";
                         submitBtn.disabled = false;
                     }
                     enquiryForm.reset();
-                }, function (error) {
+                }, (error) => {
                     alert('Failed to send enquiry: ' + JSON.stringify(error));
                     if (submitBtn) {
                         submitBtn.innerText = "Send Enquiry";
@@ -251,5 +274,4 @@ document.addEventListener('DOMContentLoaded', function () {
                 });
         });
     }
-
 });

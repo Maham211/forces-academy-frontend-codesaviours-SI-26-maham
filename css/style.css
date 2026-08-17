@@ -2,12 +2,12 @@
    1. GLOBAL RESET & DESIGN SYSTEM VARIABLES
    ========================================================================== */
 :root {
-    --primary-dark: #0a192f;   /* Deep Navy Blue (Navbar, Footer, Headers) */
-    --accent-blue: #0d6efd;    /* Royal Blue (Buttons, Active States, Links) */
-    --brand-gold: #ffc107;     /* Golden Amber (Highlights, Hover States) */
-    --light-bg: #f8fafc;       /* Clean Light Gray Background */
-    --text-dark: #1e293b;      /* High-readability Dark Text */
-    --text-muted: #64748b;     /* Secondary Gray Text */
+    --primary-dark: #0a192f;       /* Deep Navy Blue */
+    --accent-blue: #0d6efd;        /* Royal Blue */
+    --brand-gold: #ffc107;         /* Golden Amber */
+    --light-bg: #f8fafc;           /* Clean Light Gray Background */
+    --text-dark: #1e293b;          /* High-readability Dark Text */
+    --text-muted: #64748b;         /* Secondary Gray Text */
     --card-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
     --hover-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
     --transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -32,13 +32,13 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* ==========================================
-   GLOBAL STANDARDIZED NAVBAR FIX
-   ========================================== */
+/* ==========================================================================
+   2. STANDARDIZED NAVIGATION BAR
+   ========================================================================== */
 .navbar {
     min-height: 75px !important;
     padding: 10px 0 !important;
-    background-color: #0a192f !important; /* Fixed Navy Blue */
+    background-color: var(--primary-dark) !important;
 }
 
 .navbar-brand img {
@@ -57,7 +57,6 @@ body {
     padding: 8px 12px !important;
 }
 
-/* Button size locking */
 .navbar .btn-warning {
     font-size: 0.9rem !important;
     padding: 8px 18px !important;
@@ -72,10 +71,19 @@ body {
     display: inline-flex !important;
     align-items: center !important;
     justify-content: center !important;
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #ffffff;
+    transition: var(--transition-smooth);
+}
+
+#darkModeToggle:hover {
+    background-color: var(--brand-gold);
+    border-color: var(--brand-gold);
+    color: var(--primary-dark);
 }
 
 /* ==========================================================================
-   3. STANDARDIZED UI BUTTONS & UTILITIES
+   3. BUTTONS, BADGES & UTILITIES
    ========================================================================== */
 .btn-primary {
     background-color: var(--accent-blue) !important;
@@ -83,17 +91,18 @@ body {
     border-radius: 30px;
     padding: 12px 30px;
     font-weight: 600;
-    transition: var(--transition-smooth);
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .btn-primary:hover {
     background-color: #0b5ed7 !important;
     border-color: #0b5ed7 !important;
-    transform: translateY(-3px);
+    transform: translateY(-2px);
     box-shadow: 0 10px 20px rgba(13, 110, 253, 0.25);
 }
 
-.btn-warning, .badge-gold {
+.btn-warning, 
+.badge-gold {
     background-color: var(--brand-gold) !important;
     border-color: var(--brand-gold) !important;
     color: #000000 !important;
@@ -119,7 +128,8 @@ body {
     padding: 60px 0;
 }
 
-.section-title, .section-heading {
+.section-title, 
+.section-heading {
     color: var(--accent-blue);
     font-weight: 700;
     letter-spacing: 2px;
@@ -129,12 +139,18 @@ body {
     margin-bottom: 8px;
 }
 
-.section-subtitle, .section-desc, .feature-desc {
+.section-subtitle, 
+.section-desc, 
+.feature-desc {
     color: #475569;
 }
 
+.max-w-700 {
+    max-width: 700px;
+}
+
 /* ==========================================================================
-   4. INDEX (HOME) HERO SECTION - DARK NAVY BACKGROUND & HIGH CONTRAST TEXT
+   4. HERO & CAROUSEL SECTIONS
    ========================================================================== */
 #hero {
     min-height: 85vh;
@@ -142,7 +158,7 @@ body {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background-color: #0a192f !important; /* Deep Navy Blue Theme Background */
+    background-color: var(--primary-dark) !important;
     color: #ffffff !important;
     padding: 60px 0;
 }
@@ -152,14 +168,14 @@ body {
     font-weight: 800;
     line-height: 1.2;
     margin-bottom: 25px;
-    color: #ffffff !important; /* Bright White Heading */
+    color: #ffffff !important;
     animation: fadeInUp 0.7s ease-out forwards;
 }
 
 .hero-text p {
     font-size: 17px;
     line-height: 1.8;
-    color: #cbd5e1 !important; /* Readable Light Gray Paragraph Text */
+    color: #cbd5e1 !important;
     margin-bottom: 30px;
     animation: fadeInUp 0.7s ease-out 0.2s forwards;
 }
@@ -195,20 +211,17 @@ body {
     color: #ffffff;
 }
 
-/* Card Hover Effect */
-#announcements .card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-#announcements .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
+/* Portal Hero Light Styling */
+.portal-hero {
+    background-color: #ffffff !important;
 }
 
 /* ==========================================================================
    5. CARDS, GRID MODULES & ABOUT SECTION
    ========================================================================== */
-.card, .custom-card, .why-card {
+.card, 
+.custom-card, 
+.why-card {
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
@@ -219,9 +232,16 @@ body {
     color: var(--text-dark);
 }
 
-.card:hover, .custom-card:hover, .why-card:hover {
+.card:hover, 
+.custom-card:hover, 
+.why-card:hover {
     transform: translateY(-8px);
-    box-shadow: var(--hover-shadow);
+    box-shadow: var(--hover-shadow) !important;
+}
+
+#announcements .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12) !important;
 }
 
 .card-img-top {
@@ -277,7 +297,8 @@ body {
     color: var(--brand-gold);
 }
 
-.feature-icon, .icon-box {
+.feature-icon, 
+.icon-box {
     font-size: 40px;
     color: var(--accent-blue);
     margin-bottom: 15px;
@@ -291,6 +312,16 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+}
+
+.portal-icon-wrapper {
+    width: 65px !important;
+    height: 65px !important;
+    border-radius: 50% !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 auto 1rem auto !important;
 }
 
 /* Team Section Cards */
@@ -332,8 +363,36 @@ body {
     color: #ffffff !important;
 }
 
+/* Standardized Card Badges */
+.card .badge, 
+.custom-card .badge, 
+.why-card .badge {
+    display: inline-block !important;
+    width: auto !important;
+    height: auto !important;
+    min-width: unset !important;
+    min-height: unset !important;
+    padding: 6px 16px !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    border-radius: 20px !important;
+    box-shadow: none !important;
+    outline: none !important;
+    border: none !important;
+    text-align: center !important;
+    letter-spacing: 0.3px !important;
+}
+
+.badge-info, 
+.badge-intermediate,
+.card .bg-info,
+.card .bg-primary {
+    background-color: #0dcaf0 !important;
+    color: #000000 !important;
+}
+
 /* ==========================================================================
-   6. GALLERY & LIGHTBOX (With Filters)
+   6. GALLERY & LIGHTBOX
    ========================================================================== */
 .gallery-container {
     display: grid;
@@ -422,7 +481,7 @@ body {
 }
 
 /* ==========================================================================
-   7. FORMS & DATA TABLES
+   7. FORMS & TABLES
    ========================================================================== */
 .form-control {
     border: 1px solid #ced4da;
@@ -465,11 +524,6 @@ iframe {
     z-index: 1;
 }
 
-.badge {
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: inline-block;
-}
-
 .table-hover tbody tr:hover .badge {
     transform: scale(1.15);
 }
@@ -489,14 +543,8 @@ iframe {
     border: none !important;
 }
 
-.badge-gold {
-    background-color: var(--brand-gold) !important;
-    color: #000000 !important;
-    box-shadow: none !important;
-}
-
 /* ==========================================================================
-   8. STATISTICS SECTION & COUNTERS
+   8. STATISTICS & COUNTERS
    ========================================================================== */
 .stats-section {
     padding: 70px 20px;
@@ -541,7 +589,7 @@ iframe {
 }
 
 /* ==========================================================================
-   9. TESTIMONIALS SECTION & CAROUSEL
+   9. TESTIMONIALS & CAROUSEL
    ========================================================================== */
 .testimonial-card {
     background: #ffffff;
@@ -597,7 +645,7 @@ iframe {
 }
 
 /* ==========================================================================
-   10. BACK TO TOP FLOATING BUTTON
+   10. FLOATING BACK TO TOP BUTTON
    ========================================================================== */
 #backToTopBtn {
     position: fixed;
@@ -634,11 +682,11 @@ iframe {
 }
 
 /* ==========================================================================
-   11. CALL TO ACTION (CTA) SECTION - UNIFIED NAVY BANNER
+   11. CALL TO ACTION (CTA) BANNER
    ========================================================================== */
 .navy-cta-banner,
 .bg-primary {
-    background-color: #0a192f !important;
+    background-color: var(--primary-dark) !important;
     padding: 2.5rem 1.5rem !important;
     margin-top: 0 !important;
     margin-bottom: 0 !important;
@@ -646,11 +694,15 @@ iframe {
     border-bottom: 4px solid var(--brand-gold) !important;
 }
 
-.navy-cta-banner h2, .bg-primary h1, .bg-primary h2, .bg-primary h3 {
+.navy-cta-banner h2, 
+.bg-primary h1, 
+.bg-primary h2, 
+.bg-primary h3 {
     color: #ffffff !important;
 }
 
-.navy-cta-banner p, .bg-primary p {
+.navy-cta-banner p, 
+.bg-primary p {
     color: #cbd5e1 !important;
 }
 
@@ -676,19 +728,19 @@ iframe {
 }
 
 /* ==========================================================================
-   12. DEEP NAVY BLUE FOOTER
+   12. FOOTER
    ========================================================================== */
 footer, 
 footer.bg-dark, 
 footer.text-white {
-    background-color: #0a192f !important;
+    background-color: var(--primary-dark) !important;
     color: #e2e8f0 !important;
 }
 
 footer h4, 
 footer h5, 
 footer .text-warning {
-    color: #ffc107 !important;
+    color: var(--brand-gold) !important;
 }
 
 footer p, 
@@ -699,7 +751,7 @@ footer .text-white-50 {
 }
 
 footer a:hover {
-    color: #ffc107 !important;
+    color: var(--brand-gold) !important;
 }
 
 footer hr, 
@@ -708,26 +760,8 @@ footer .border-secondary {
 }
 
 /* ==========================================================================
-   13. DARK MODE TOGGLE & MASTER OVERRIDES
+   13. DARK MODE MASTER OVERRIDES
    ========================================================================== */
-#darkModeToggle {
-    border-color: rgba(255, 255, 255, 0.4);
-    color: #ffffff;
-    transition: var(--transition-smooth);
-    width: 40px;
-    height: 40px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#darkModeToggle:hover {
-    background-color: var(--brand-gold);
-    border-color: var(--brand-gold);
-    color: var(--primary-dark);
-}
-
-/* Body & Main Backgrounds */
 body.dark-mode,
 body.dark-mode main,
 body.dark-mode section,
@@ -741,7 +775,10 @@ body.dark-mode .page-header {
     color: #ffffff !important;
 }
 
-/* Cards, Tables, Modals & Dropdowns */
+body.dark-mode .portal-hero {
+    background-color: #1a1d20 !important;
+}
+
 body.dark-mode .card,
 body.dark-mode .custom-card,
 body.dark-mode .why-card,
@@ -762,7 +799,6 @@ body.dark-mode th {
     color: #ffffff !important;
 }
 
-/* Headings in Dark Mode */
 body.dark-mode h1,
 body.dark-mode h2,
 body.dark-mode h3,
@@ -774,11 +810,11 @@ body.dark-mode .display-2,
 body.dark-mode .display-3,
 body.dark-mode .display-4,
 body.dark-mode .card-title,
-body.dark-mode .about-section h2 {
+body.dark-mode .about-section h2,
+body.dark-mode .portal-hero h1 {
     color: #ffffff !important;
 }
 
-/* Body Text & Paragraphs */
 body.dark-mode p,
 body.dark-mode span,
 body.dark-mode li,
@@ -799,13 +835,12 @@ body.dark-mode .text-body {
     color: #f1f5f9 !important;
 }
 
-/* Muted / Secondary Text */
 body.dark-mode .text-muted,
-body.dark-mode .text-secondary {
+body.dark-mode .text-secondary,
+body.dark-mode .card .text-muted {
     color: #94a3b8 !important;
 }
 
-/* Form Controls */
 body.dark-mode .form-control,
 body.dark-mode .form-select,
 body.dark-mode .input-group-text {
@@ -818,7 +853,6 @@ body.dark-mode .form-control::placeholder {
     color: #94a3b8 !important;
 }
 
-/* Accordion Active State */
 body.dark-mode .accordion-button {
     background-color: #1e293b !important;
     color: #ffffff !important;
@@ -829,53 +863,10 @@ body.dark-mode .accordion-button:not(.collapsed) {
     color: #38bdf8 !important;
 }
 
-/* Inline Links */
 body.dark-mode a:not(.btn):not(.nav-link) {
     color: #38bdf8 !important;
 }
-/* ==========================================================================
-   FIX: COURSE & CARD BADGES UNIFORM SIZING (3rd Badge Matching Style)
-   ========================================================================== */
 
-/* Cards ke andar standard text badges ko clean horizontal pill banayein */
-.card .badge, 
-.custom-card .badge, 
-.why-card .badge {
-    display: inline-block !important;
-    width: auto !important;
-    height: auto !important;
-    min-width: unset !important;
-    min-height: unset !important;
-    padding: 6px 16px !important;
-    font-size: 0.85rem !important;
-    font-weight: 600 !important;
-    border-radius: 20px !important;
-    box-shadow: none !important;
-    outline: none !important;
-    border: none !important;
-    text-align: center !important;
-    letter-spacing: 0.3px !important;
-}
-
-/* Specific Badge Background Colors Fix */
-.badge-info, 
-.badge-intermediate,
-.card .bg-info,
-.card .bg-primary {
-    background-color: #0dcaf0 !important; /* Clean cyan/light blue matching 3rd badge */
-    color: #000000 !important;
-}
-
-/* Force Table Badges to stay Round (Counter Numbers Only) */
-.table .badge {
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 36px !important;
-    height: 36px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-}
 /* ==========================================================================
    14. KEYFRAME ANIMATIONS & RESPONSIVE QUERIES
    ========================================================================== */
@@ -897,12 +888,10 @@ body.dark-mode a:not(.btn):not(.nav-link) {
 
 .animate-fade-in { animation: fadeIn 1s ease-out forwards; }
 .animate-slide-up { opacity: 0; animation: fadeInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards; }
-
 .animate-header { animation: fadeInUp 0.6s ease-out forwards; }
 .animate-filters { animation: fadeInUp 0.6s ease-out 0.2s forwards; opacity: 0; }
 .animate-table { animation: fadeIn 0.8s ease-out 0.4s forwards; opacity: 0; }
 
-/* Staggered Delays */
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }
 .delay-3 { animation-delay: 0.3s; }
@@ -910,13 +899,36 @@ body.dark-mode a:not(.btn):not(.nav-link) {
 .delay-5 { animation-delay: 0.5s; }
 
 @media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: #1a2a3a;
+        padding: 1rem 0;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .container {
+        padding-left: 15px;
+        padding-right: 15px;
+        overflow-x: hidden;
+    }
+
     #hero {
         padding: 2.5rem 0 3.5rem 0;
         text-align: center;
     }
+
     .stat-number {
         font-size: 2.25rem;
     }
+
     .testimonial-card {
         padding: 1.5rem 1rem;
     }
@@ -926,94 +938,28 @@ body.dark-mode a:not(.btn):not(.nav-link) {
     .stats-section {
         padding: 45px 15px;
     }
+
     .stat-card {
         padding: 20px !important;
     }
+
     .stat-number {
         font-size: 2rem;
     }
+
     .stat-label {
         font-size: 0.95rem;
     }
+
     .carousel-control-prev,
     .carousel-control-next {
         display: none;
     }
+
     #backToTopBtn {
         bottom: 20px;
         right: 20px;
         width: 42px;
         height: 42px;
     }
-}
-/* ==========================================
-   DAY 4: STUDENT PORTAL PAGE STYLES
-   ========================================== */
-
-/* Portal Hero Banner Custom Text Limit */
-.max-w-700 {
-    max-width: 700px;
-}
-
-/* Feature Cards Design */
-.card {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Feature Card Hover Effect */
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
-}
-
-/* Dark Mode Adjustments for Portal Page */
-body.dark-mode .card {
-    background-color: #2b3035 !important;
-    color: #f8f9fa !important;
-}
-
-body.dark-mode .card .text-muted {
-    color: #adb5bd !important;
-}
-
-body.dark-mode .bg-light {
-    background-color: #212529 !important;
-}
-/* Portal Icons Perfect Circle Fix */
-.portal-icon-wrapper {
-    width: 70px !important;
-    height: 70px !important;
-    border-radius: 0% !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto 1rem auto !important;
-}
-/* Portal Hero Light Styling */
-.portal-hero {
-    background-color: #ffffff !important;
-}
-
-/* Max Width for Paragraph */
-.max-w-700 {
-    max-width: 700px;
-}
-
-/* Perfect Round Icons Fix */
-.portal-icon-wrapper {
-    width: 65px !important;
-    height: 65px !important;
-    border-radius: 50% !important;
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    margin: 0 auto 1rem auto !important;
-}
-
-/* Dark Mode Support for Portal Hero */
-body.dark-mode .portal-hero {
-    background-color: #1a1d20 !important;
-}
-body.dark-mode .portal-hero h1 {
-    color: #ffffff !important;
 }
