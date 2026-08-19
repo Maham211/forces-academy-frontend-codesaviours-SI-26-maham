@@ -25,6 +25,6 @@ A clean and user-friendly website for Forces Academy Faisalabad. It helps studen
 ## How to Run Locally
 1. Download or clone this repository:
    ```bash
-  [https://github.com/maham211/forces-academy-frontend-codesaviours-SI-26-maham.git]
+   git clone [https://github.com/maham211/forces-academy-frontend-codesaviours-SI-26-maham.git]
 ---
 **Built by:** [Maham Asif] | Code Saviours SI-26 | 2026
