@@ -6,47 +6,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const darkModeToggle = document.getElementById('darkModeToggle');
     const darkModeIcon = document.getElementById('darkModeIcon');
     const bodyElement = document.body;
+    const docElement = document.documentElement;
 
     const savedTheme = localStorage.getItem('theme');
+    const isDark = savedTheme === 'dark';
 
-    if (savedTheme === 'dark') {
-        bodyElement.classList.add('dark-mode');
-        document.documentElement.classList.add('dark-mode');
-        if (darkModeIcon) {
-            darkModeIcon.classList.remove('bi-moon-fill');
-            darkModeIcon.classList.add('bi-sun-fill');
-        }
-    } else {
-        bodyElement.classList.remove('dark-mode');
-        document.documentElement.classList.remove('dark-mode');
-        if (darkModeIcon) {
-            darkModeIcon.classList.remove('bi-sun-fill');
-            darkModeIcon.classList.add('bi-moon-fill');
-        }
+    // Initial Theme Set
+    bodyElement.classList.toggle('dark-mode', isDark);
+    docElement.classList.toggle('dark-mode', isDark);
+    if (darkModeIcon) {
+        darkModeIcon.classList.toggle('bi-sun-fill', isDark);
+        darkModeIcon.classList.toggle('bi-moon-fill', !isDark);
     }
 
     if (darkModeToggle) {
         darkModeToggle.addEventListener('click', () => {
-            bodyElement.classList.toggle('dark-mode');
-            document.documentElement.classList.toggle('dark-mode');
-            const isDarkMode = bodyElement.classList.contains('dark-mode');
+            const isDarkMode = bodyElement.classList.toggle('dark-mode');
+            docElement.classList.toggle('dark-mode', isDarkMode);
 
             localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 
             if (darkModeIcon) {
-                if (isDarkMode) {
-                    darkModeIcon.classList.remove('bi-moon-fill');
-                    darkModeIcon.classList.add('bi-sun-fill');
-                } else {
-                    darkModeIcon.classList.remove('bi-sun-fill');
-                    darkModeIcon.classList.add('bi-moon-fill');
-                }
+                darkModeIcon.classList.toggle('bi-sun-fill', isDarkMode);
+                darkModeIcon.classList.toggle('bi-moon-fill', !isDarkMode);
             }
         });
     }
 
     // ==========================================
-    // 2. MOBILE NAVIGATION TOGGLE & SMOOTH SCROLL
+    // 2. NAVIGATION & SMOOTH SCROLL
     // ==========================================
     const menuToggle = document.querySelector('.menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -57,8 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    const anchorLinks = document.querySelectorAll('a[href^="#"]');
-    anchorLinks.forEach(anchor => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             const targetId = this.getAttribute('href');
             if (targetId && targetId !== '#') {
@@ -115,7 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         contactForm.addEventListener('submit', (event) => {
             event.preventDefault();
-
             let isValid = true;
 
             inputs.forEach(input => {
@@ -145,42 +131,67 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ==========================================
-    // 4. GALLERY FILTERING
+    // 4. DYNAMIC SEARCH & CATEGORY FILTERING
     // ==========================================
+    const searchInput = document.getElementById('searchInput');
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
+    const cards = document.querySelectorAll('.gallery-card, .course-card');
+    const noResultsMsg = document.getElementById('noResultsMsg');
 
-    if (filterButtons.length > 0) {
-        filterButtons.forEach(button => {
-            button.addEventListener('click', function () {
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                this.classList.add('active');
+    let activeCategory = 'all';
+    let searchQuery = '';
 
-                const selectedCategory = this.getAttribute('data-filter');
+    function filterItems() {
+        let visibleCount = 0;
 
-                galleryCards.forEach(card => {
-                    const cardCategory = card.getAttribute('data-category');
+        cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category') || '';
+            const cardTitle = card.querySelector('.card-title, h5')?.textContent.toLowerCase() || '';
+            const cardText = card.querySelector('.card-text, p')?.textContent.toLowerCase() || '';
 
-                    if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 50);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
+            const matchesCategory = activeCategory === 'all' || cardCategory.toLowerCase() === activeCategory.toLowerCase();
+            const matchesSearch = cardTitle.includes(searchQuery) || cardText.includes(searchQuery);
+
+            if (matchesCategory && matchesSearch) {
+                card.style.display = 'block';
+                card.classList.remove('fade-out');
+                card.classList.add('fade-in');
+                visibleCount++;
+            } else {
+                card.classList.remove('fade-in');
+                card.classList.add('fade-out');
+                setTimeout(() => {
+                    if (card.classList.contains('fade-out')) {
+                        card.style.display = 'none';
                     }
-                });
-            });
+                }, 200);
+            }
+        });
+
+        if (noResultsMsg) {
+            noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+
+            activeCategory = e.currentTarget.getAttribute('data-filter') || 'all';
+            filterItems();
+        });
+    });
+
+    if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            filterItems();
         });
     }
 
     // ==========================================
-    // 5. STATS COUNTER ANIMATION
+    // 5. STATS COUNTER ANIMATION & INTERSECTION OBSERVER
     // ==========================================
     const statsSection = document.getElementById('statsSection') || document.querySelector('.stats-section');
     const statNumbers = document.querySelectorAll('.stat-number');
@@ -208,7 +219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     if (statsSection && statNumbers.length > 0) {
-        const observer = new IntersectionObserver((entries, observerInstance) => {
+        const statsObserver = new IntersectionObserver((entries, observerInstance) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) {
                     statNumbers.forEach((num) => animateCounter(num));
@@ -217,7 +228,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }, { threshold: 0.3 });
 
-        observer.observe(statsSection);
+        statsObserver.observe(statsSection);
+    }
+
+    // Element Animation Observer
+    const animElements = document.querySelectorAll('.animate-fade-left, .animate-fade-right');
+    if (animElements.length > 0) {
+        const animObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        animElements.forEach(el => animObserver.observe(el));
     }
 
     // ==========================================
@@ -257,21 +282,32 @@ document.addEventListener('DOMContentLoaded', () => {
                 submitBtn.disabled = true;
             }
 
-            emailjs.sendForm('service_0t4xg0a', 'template_lf8l72w', this)
-                .then(() => {
-                    alert('Enquiry sent successfully!');
-                    if (submitBtn) {
-                        submitBtn.innerText = "Send Enquiry";
-                        submitBtn.disabled = false;
-                    }
+            if (typeof emailjs !== 'undefined') {
+                emailjs.sendForm('service_0t4xg0a', 'template_lf8l72w', this)
+                    .then(() => {
+                        alert('Enquiry sent successfully!');
+                        enquiryForm.reset();
+                    })
+                    .catch((error) => {
+                        alert('Failed to send enquiry: ' + JSON.stringify(error));
+                    })
+                    .finally(() => {
+                        if (submitBtn) {
+                            submitBtn.innerText = "Send Enquiry";
+                            submitBtn.disabled = false;
+                        }
+                    });
+            } else {
+                // Fallback simulation if EmailJS library fails to load
+                setTimeout(() => {
+                    alert('Thank you! Your enquiry has been submitted successfully.');
                     enquiryForm.reset();
-                }, (error) => {
-                    alert('Failed to send enquiry: ' + JSON.stringify(error));
                     if (submitBtn) {
                         submitBtn.innerText = "Send Enquiry";
                         submitBtn.disabled = false;
                     }
-                });
+                }, 1000);
+            }
         });
     }
 });

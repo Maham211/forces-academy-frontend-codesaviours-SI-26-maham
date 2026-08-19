@@ -33,7 +33,7 @@ body {
 }
 
 /* ==========================================================================
-   2. STANDARDIZED NAVIGATION BAR
+   2. STANDARDIZED NAVIGATION BAR & BUTTONS
    ========================================================================== */
 .navbar {
     min-height: 75px !important;
@@ -64,6 +64,7 @@ body {
     white-space: nowrap !important;
 }
 
+/* Dark Mode Toggle Icon with Proper Spacing */
 #darkModeToggle {
     width: 38px !important;
     height: 38px !important;
@@ -73,6 +74,7 @@ body {
     justify-content: center !important;
     border-color: rgba(255, 255, 255, 0.4);
     color: #ffffff;
+    margin-right: 15px !important; /* Distance from Student Portal Button */
     transition: var(--transition-smooth);
 }
 
@@ -132,9 +134,9 @@ body {
 .section-heading {
     color: var(--accent-blue);
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    font-size: 13px;
+    font-size: 0.85rem;
     display: block;
     margin-bottom: 8px;
 }
@@ -211,7 +213,6 @@ body {
     color: #ffffff;
 }
 
-/* Portal Hero Light Styling */
 .portal-hero {
     background-color: #ffffff !important;
 }
@@ -363,24 +364,20 @@ body {
     color: #ffffff !important;
 }
 
-/* Standardized Card Badges */
+/* Card Badges */
 .card .badge, 
 .custom-card .badge, 
 .why-card .badge {
     display: inline-block !important;
     width: auto !important;
     height: auto !important;
-    min-width: unset !important;
-    min-height: unset !important;
     padding: 6px 16px !important;
     font-size: 0.85rem !important;
     font-weight: 600 !important;
     border-radius: 20px !important;
     box-shadow: none !important;
-    outline: none !important;
     border: none !important;
     text-align: center !important;
-    letter-spacing: 0.3px !important;
 }
 
 .badge-info, 
@@ -389,6 +386,26 @@ body {
 .card .bg-primary {
     background-color: #0dcaf0 !important;
     color: #000000 !important;
+}
+
+.apply-step-card {
+    transition: transform 0.3s ease, border-left 0.3s ease !important;
+    border-left: 4px solid transparent;
+}
+
+.apply-step-card:hover {
+    transform: translateX(8px) !important;
+    border-left-color: #0d6efd !important;
+}
+
+.doc-list-item {
+    transition: transform 0.3s ease, background-color 0.3s ease !important;
+    border-radius: 6px;
+}
+
+.doc-list-item:hover {
+    transform: translateX(6px) !important;
+    background-color: rgba(13, 110, 253, 0.05);
 }
 
 /* ==========================================================================
@@ -538,8 +555,6 @@ iframe {
     font-size: 0.95rem !important;
     font-weight: 700 !important;
     border-radius: 50% !important;
-    box-shadow: none !important;
-    outline: none !important;
     border: none !important;
 }
 
@@ -611,10 +626,6 @@ iframe {
 .testimonial-img {
     width: 80px !important;
     height: 80px !important;
-    max-width: 80px !important;
-    max-height: 80px !important;
-    min-width: 80px !important;
-    min-height: 80px !important;
     border-radius: 10% !important;
     object-fit: cover !important;
     object-position: top center !important;
@@ -657,22 +668,18 @@ iframe {
     background-color: var(--brand-gold);
     color: #000000;
     border: none;
-    outline: none;
     cursor: pointer;
     font-size: 1.25rem;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
-    opacity: 0;
-    visibility: hidden;
     transition: var(--transition-smooth);
     z-index: 999;
 }
 
 #backToTopBtn.show {
-    opacity: 1;
-    visibility: visible;
+    display: flex !important;
 }
 
 #backToTopBtn:hover {
@@ -688,8 +695,6 @@ iframe {
 .bg-primary {
     background-color: var(--primary-dark) !important;
     padding: 2.5rem 1.5rem !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
     box-shadow: 0 8px 25px rgba(10, 25, 47, 0.2) !important;
     border-bottom: 4px solid var(--brand-gold) !important;
 }
@@ -891,6 +896,23 @@ body.dark-mode a:not(.btn):not(.nav-link) {
 .animate-header { animation: fadeInUp 0.6s ease-out forwards; }
 .animate-filters { animation: fadeInUp 0.6s ease-out 0.2s forwards; opacity: 0; }
 .animate-table { animation: fadeIn 0.8s ease-out 0.4s forwards; opacity: 0; }
+
+.animate-fade-left {
+    opacity: 0 !important;
+    transform: translateX(-40px) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.animate-fade-right {
+    opacity: 0 !important;
+    transform: translateX(40px) !important;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out !important;
+}
+
+.animate-show {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
 
 .delay-1 { animation-delay: 0.1s; }
 .delay-2 { animation-delay: 0.2s; }

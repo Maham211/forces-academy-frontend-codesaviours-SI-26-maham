@@ -19,12 +19,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="js/script.js">
 </head>
 
 <body>
 
-    
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -42,7 +40,7 @@
                     <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
                     <li class="nav-item"><a class="nav-link active" href="results.html">Results</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
 
                     <li class="nav-item ms-lg-2">
                         <button id="darkModeToggle" class="btn btn-outline-light rounded-circle p-2" aria-label="Toggle dark mode">
@@ -50,7 +48,7 @@
                         </button>
                     </li>
 
-                    <a class="btn btn-warning fw-semibold px-3" href="http://ramish.great-site.net/login.php">
+                    <a class="btn btn-warning fw-semibold px-3 ms-lg-2" href="http://ramish.great-site.net/login.php">
                         Student Portal
                     </a>
                 </ul>
@@ -58,19 +56,18 @@
         </div>
     </nav>
 
-       <div class="bg-white text-dark text-center py-5 border-bottom">
+    <div class="bg-white text-dark text-center py-5 border-bottom">
         <div class="container">
             <h1 class="fw-bold display-4 text-dark">Academic Results</h1>
             <p class="lead text-muted mb-0">View our students' top positions, achievements, and board scores.</p>
         </div>
     </div>
-  
 
     <div class="container my-5">
 
         <div class="row mb-4">
             <div class="col-12">
-                <div class="filter-bar p-3 d-flex flex-wrap gap-3 align-items-center justify-content-center justify-content-md-start">
+                <div class="filter-bar p-3 d-flex flex-wrap gap-3 align-items-center justify-content-center justify-content-md-start border rounded bg-light">
                     <span class="fw-semibold text-secondary">Filter By:</span>
                     
                     <div class="dropdown">
@@ -78,10 +75,11 @@
                             Select Class
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="classDropdown">
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">Class 9</a></li>
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">Class 10</a></li>
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">FSc Part 1</a></li>
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">FSc Part 2</a></li>
+                            <li><a class="dropdown-item" href="#">All Classes</a></li>
+                            <li><a class="dropdown-item" href="#">Class 9</a></li>
+                            <li><a class="dropdown-item" href="#">Class 10</a></li>
+                            <li><a class="dropdown-item" href="#">FSc Part 1</a></li>
+                            <li><a class="dropdown-item" href="#">FSc Part 2</a></li>
                         </ul>
                     </div>
 
@@ -90,9 +88,10 @@
                             Select Year
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="yearDropdown">
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">2026</a></li>
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">2025</a></li>
-                            <li><a class="dropdown-menu-item dropdown-item" href="#">2024</a></li>
+                            <li><a class="dropdown-item" href="#">All Years</a></li>
+                            <li><a class="dropdown-item" href="#">2026</a></li>
+                            <li><a class="dropdown-item" href="#">2025</a></li>
+                            <li><a class="dropdown-item" href="#">2024</a></li>
                         </ul>
                     </div>
                 </div>
@@ -101,7 +100,7 @@
 
         <div class="row">
             <div class="col-12">
-                <div class="table-container">
+                <div class="table-container shadow-sm rounded">
                     <div class="table-responsive">
                         <table class="table table-striped table-hover align-middle mb-0">
                             <thead class="table-dark">
@@ -195,6 +194,247 @@
                                     <td>89</td>
                                     <td><span class="badge bg-success">A</span></td>
                                 </tr>
+                                <!-- Added 30 Rows Below -->
+                                <tr>
+                                    <td>1011</td>
+                                    <td>Hassan Raza</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Physics</td>
+                                    <td>91</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1012</td>
+                                    <td>Maryam Bibi</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Biology</td>
+                                    <td>87</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1013</td>
+                                    <td>Bilal Ahmed</td>
+                                    <td>Class 10</td>
+                                    <td>Mathematics</td>
+                                    <td>94</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1014</td>
+                                    <td>Khadija Rehman</td>
+                                    <td>Class 9</td>
+                                    <td>Computer Science</td>
+                                    <td>83</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1015</td>
+                                    <td>Omar Farooq</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Chemistry</td>
+                                    <td>76</td>
+                                    <td><span class="badge bg-primary">B</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1016</td>
+                                    <td>Mahnoor Rashid</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Mathematics</td>
+                                    <td>90</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1017</td>
+                                    <td>Saad Abdullah</td>
+                                    <td>Class 10</td>
+                                    <td>Physics</td>
+                                    <td>82</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1018</td>
+                                    <td>Eman Fatima</td>
+                                    <td>Class 9</td>
+                                    <td>English</td>
+                                    <td>89</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1019</td>
+                                    <td>Abdullah Nasir</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Biology</td>
+                                    <td>93</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1020</td>
+                                    <td>Iqra Shahid</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Chemistry</td>
+                                    <td>79</td>
+                                    <td><span class="badge bg-primary">B</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1021</td>
+                                    <td>Fahad Mustafa</td>
+                                    <td>Class 10</td>
+                                    <td>Chemistry</td>
+                                    <td>86</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1022</td>
+                                    <td>Anum Shehzadi</td>
+                                    <td>Class 9</td>
+                                    <td>Mathematics</td>
+                                    <td>91</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1023</td>
+                                    <td>Shahzaib Khan</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Physics</td>
+                                    <td>88</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1024</td>
+                                    <td>Nimra Javed</td>
+                                    <td>FSc Part 1</td>
+                                    <td>English</td>
+                                    <td>84</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1025</td>
+                                    <td>Waqas Mahmood</td>
+                                    <td>Class 10</td>
+                                    <td>Computer Science</td>
+                                    <td>95</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1026</td>
+                                    <td>Tayyaba Noor</td>
+                                    <td>Class 9</td>
+                                    <td>Biology</td>
+                                    <td>78</td>
+                                    <td><span class="badge bg-primary">B</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1027</td>
+                                    <td>Haris Ashfaq</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Mathematics</td>
+                                    <td>80</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1028</td>
+                                    <td>Aleena Aslam</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Physics</td>
+                                    <td>92</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1029</td>
+                                    <td>Danyal Zia</td>
+                                    <td>Class 10</td>
+                                    <td>General Science</td>
+                                    <td>71</td>
+                                    <td><span class="badge bg-primary">B</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1030</td>
+                                    <td>Bishmah Arshad</td>
+                                    <td>Class 9</td>
+                                    <td>Chemistry</td>
+                                    <td>87</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1031</td>
+                                    <td>Rayan Shoaib</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Computer Science</td>
+                                    <td>89</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1032</td>
+                                    <td>Mehak Sohail</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Biology</td>
+                                    <td>96</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1033</td>
+                                    <td>Sufyan Akram</td>
+                                    <td>Class 10</td>
+                                    <td>Physics</td>
+                                    <td>77</td>
+                                    <td><span class="badge bg-primary">B</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1034</td>
+                                    <td>Yousaf Habib</td>
+                                    <td>Class 9</td>
+                                    <td>Mathematics</td>
+                                    <td>83</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1035</td>
+                                    <td>Komal Shahzadi</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Chemistry</td>
+                                    <td>94</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1036</td>
+                                    <td>Zubair Ghani</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Mathematics</td>
+                                    <td>82</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1037</td>
+                                    <td>Sadia Pervez</td>
+                                    <td>Class 10</td>
+                                    <td>English</td>
+                                    <td>90</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1038</td>
+                                    <td>Mubeen Ahmed</td>
+                                    <td>Class 9</td>
+                                    <td>Physics</td>
+                                    <td>69</td>
+                                    <td><span class="badge bg-warning text-dark">C</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1039</td>
+                                    <td>Afshan Jameel</td>
+                                    <td>FSc Part 2</td>
+                                    <td>Biology</td>
+                                    <td>88</td>
+                                    <td><span class="badge bg-success">A</span></td>
+                                </tr>
+                                <tr>
+                                    <td>1040</td>
+                                    <td>Taimoor Sultan</td>
+                                    <td>FSc Part 1</td>
+                                    <td>Chemistry</td>
+                                    <td>91</td>
+                                    <td><span class="badge bg-success">A+</span></td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -212,7 +452,6 @@
 
     </div>
 
-   
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">
             <div class="row g-4">

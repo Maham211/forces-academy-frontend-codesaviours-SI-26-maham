@@ -18,7 +18,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="js/script.js">
 </head>
 <body>
 
@@ -37,8 +36,8 @@
                     <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
                     <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                     <li class="nav-item ms-lg-2">
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-2">
                         <button id="darkModeToggle" class="btn btn-outline-light rounded-circle p-2" aria-label="Toggle dark mode">
                             <i id="darkModeIcon" class="bi bi-moon-fill"></i>
                         </button>
@@ -47,16 +46,15 @@
                     <a class="btn btn-warning fw-semibold px-3" href="http://ramish.great-site.net/login.php">
                         Student Portal
                     </a>
-                    
                 </ul>
             </div>
         </div>
     </nav>
 
-       <div class="bg-white text-dark text-center py-5 border-bottom">
+    <div class="bg-white text-dark text-center py-5 border-bottom">
         <div class="container">
             <h1 class="fw-bold display-4 text-dark">Our Courses</h1>
-            <p class="lead text-muted mb-0">Explore our comprehensive academic programs and study tracks.</p>
+            <p class="lead text-muted mb-0">Explore our comprehensive academic programs, test preparations, and skill tracks.</p>
         </div>
     </div>
 
@@ -64,6 +62,7 @@
         <div class="container">
             <div class="row g-4">
                 
+                <!-- 1. FSc Pre-Medical -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card h-100 shadow-sm border course-card animated-card bg-white">
                         <div class="card-body d-flex flex-column p-4 text-dark">
@@ -73,13 +72,14 @@
                             <hr class="text-muted opacity-25">
                             <div class="mb-3 small text-muted">
                                 <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Years</p>
-                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric Science </p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric Science</p>
                             </div>
                             <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 2. FSc Pre-Engineering -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card h-100 shadow-sm border course-card animated-card bg-white">
                         <div class="card-body d-flex flex-column p-4 text-dark">
@@ -96,6 +96,7 @@
                     </div>
                 </div>
 
+                <!-- 3. ICS Computer Science -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card h-100 shadow-sm border course-card animated-card bg-white">
                         <div class="card-body d-flex flex-column p-4 text-dark">
@@ -105,13 +106,48 @@
                             <hr class="text-muted opacity-25">
                             <div class="mb-3 small text-muted">
                                 <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Years</p>
-                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric with Science or Computer Electives</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric Science / CS</p>
                             </div>
                             <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 4. Army / Navy / PAF Initial Test -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm border course-card animated-card bg-white">
+                        <div class="card-body d-flex flex-column p-4 text-dark">
+                            <span class="badge bg-danger align-self-start mb-3 px-3 py-2">Forces Prep</span>
+                            <h4 class="fw-bold text-dark">Forces Initial Test Prep</h4>
+                            <p class="text-muted small flex-grow-1">Comprehensive intelligence test prep (Verbal & Non-Verbal), academic test coaching, and physical standard guidance for PMA, PAF, and Navy Officers.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="mb-3 small text-muted">
+                                <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Months</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric / Intermediate Passed</p>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. ISSB Preparation Track -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm border course-card animated-card bg-white">
+                        <div class="card-body d-flex flex-column p-4 text-dark">
+                            <span class="badge bg-danger align-self-start mb-3 px-3 py-2">Forces Prep</span>
+                            <h4 class="fw-bold text-dark">ISSB Comprehensive Coaching</h4>
+                            <p class="text-muted small flex-grow-1">Complete 5-day ISSB exam training including psychological screening, GTO outdoor tasks, outdoor obstacles, personal interview skills, and personality development.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="mb-3 small text-muted">
+                                <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 1 - 2 Months</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Initial Test Cleared Candidates</p>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Matric Science -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card h-100 shadow-sm border course-card animated-card bg-white">
                         <div class="card-body d-flex flex-column p-4 text-dark">
@@ -121,13 +157,14 @@
                             <hr class="text-muted opacity-25">
                             <div class="mb-3 small text-muted">
                                 <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Years</p>
-                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Middle School (8th Class) Pass</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Middle School Pass</p>
                             </div>
                             <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 7. Matric Arts -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card h-100 shadow-sm border course-card animated-card bg-white">
                         <div class="card-body d-flex flex-column p-4 text-dark">
@@ -137,23 +174,92 @@
                             <hr class="text-muted opacity-25">
                             <div class="mb-3 small text-muted">
                                 <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Years</p>
-                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Middle School (8th Class) Pass</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Middle School Pass</p>
                             </div>
                             <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 8. I.Com Commerce Track -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm border course-card animated-card bg-white">
+                        <div class="card-body d-flex flex-column p-4 text-dark">
+                            <span class="badge bg-primary align-self-start mb-3 px-3 py-2">Intermediate</span>
+                            <h4 class="fw-bold text-dark">I.Com (Commerce)</h4>
+                            <p class="text-muted small flex-grow-1">Foundational business track covering principles of accounting, commercial geography, business math, and economic principles for corporate career paths.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="mb-3 small text-muted">
+                                <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Years</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric Passed</p>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Entry Test Preparation -->
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="card h-100 shadow-sm border course-card animated-card bg-white">
                         <div class="card-body d-flex flex-column p-4 text-dark">
                             <span class="badge bg-warning text-dark align-self-start mb-3 px-3 py-2">Test Prep</span>
-                            <h4 class="fw-bold text-dark">Entry Test Preparation</h4>
-                            <p class="text-muted small flex-grow-1">Rigorous test-pattern simulation covers MDCAT, ECAT, and competitive military/defense academy board filters to secure national clearances.</p>
+                            <h4 class="fw-bold text-dark">MDCAT & ECAT Prep</h4>
+                            <p class="text-muted small flex-grow-1">Rigorous test-pattern simulation covers MDCAT, ECAT, and competitive entrance test filters to secure top university admissions.</p>
                             <hr class="text-muted opacity-25">
                             <div class="mb-3 small text-muted">
                                 <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2-3 Months (Crash Course)</p>
-                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> FSc/ICS Appeared or Passed</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> FSc Appeared / Passed</p>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. BA / ADA Degree Prep -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm border course-card animated-card bg-white">
+                        <div class="card-body d-flex flex-column p-4 text-dark">
+                            <span class="badge bg-secondary align-self-start mb-3 px-3 py-2">Degree Level</span>
+                            <h4 class="fw-bold text-dark">ADA / ADS (Associate Degree)</h4>
+                            <p class="text-muted small flex-grow-1">Higher education academic coaching focused on university examination syllabus for Associate Degree in Arts (ADA) and Science (ADS).</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="mb-3 small text-muted">
+                                <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Years</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> FA / FSc / ICS Passed</p>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Web & Computer IT Courses -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm border course-card animated-card bg-white">
+                        <div class="card-body d-flex flex-column p-4 text-dark">
+                            <span class="badge bg-dark text-white align-self-start mb-3 px-3 py-2">Short Course</span>
+                            <h4 class="fw-bold text-dark">IT & Web Development</h4>
+                            <p class="text-muted small flex-grow-1">Practical hands-on training module covering HTML5, CSS3, JavaScript, Web Design fundamentals, and Office Management suites.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="mb-3 small text-muted">
+                                <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 3 - 6 Months</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Matric / Open for All</p>
+                            </div>
+                            <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. Spoken English & Communication -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card h-100 shadow-sm border course-card animated-card bg-white">
+                        <div class="card-body d-flex flex-column p-4 text-dark">
+                            <span class="badge bg-dark text-white align-self-start mb-3 px-3 py-2">Short Course</span>
+                            <h4 class="fw-bold text-dark">Spoken English & Grooming</h4>
+                            <p class="text-muted small flex-grow-1">Specialized communication course focused on spoken English fluency, vocabulary enhancement, body language, and interview confidence building.</p>
+                            <hr class="text-muted opacity-25">
+                            <div class="mb-3 small text-muted">
+                                <p class="mb-1"><i class="bi bi-clock-history text-primary me-2"></i><strong>Duration:</strong> 2 Months</p>
+                                <p class="mb-0"><i class="bi bi-person-check text-primary me-2"></i><strong>Eligibility:</strong> Open to All Students</p>
                             </div>
                             <a href="#" class="btn btn-primary w-100 mt-auto fw-semibold">Learn More</a>
                         </div>
@@ -164,8 +270,6 @@
         </div>
     </section>
 
- 
-    
     <footer class="bg-dark text-white pt-5 pb-4">
         <div class="container">
             <div class="row g-4">
@@ -188,7 +292,6 @@
                         <li><a href="results.html" class="text-white-50 text-decoration-none">Results</a></li>
                         <li><a href="gallery.html" class="text-white-50 text-decoration-none">Gallery</a></li>
                         <li><a href="contact.html" class="text-white-50 text-decoration-none">Contact</a></li>
-
                     </ul>
                 </div>
                 <div class="col-lg-4">
